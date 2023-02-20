@@ -1,0 +1,21 @@
+@use "../../sassStyles/variables" as *;
+
+.hero {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: max-content 1fr;
+  padding: 4rem 12rem;
+
+  &__main {
+    align-self: center;
+    justify-self: center;
+    display: grid;
+    grid-template-columns: 2fr 40%;
+    column-gap: 4rem;
+    align-items: center;
+  }
+
+  &__avatar {
+    place-self: center;
+  }
+}

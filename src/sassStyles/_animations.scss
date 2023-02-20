@@ -1,0 +1,33 @@
+@use "./variables" as *;
+
+@keyframes hovering {
+  0% {
+    transform: translate(0, 0);
+    //box-shadow: 0.5rem 0.5rem 0 $primaryViolet;
+  }
+
+  100% {
+    transform: translate(-0.5rem, -0.5rem);
+    // box-shadow: 0.5rem 0.5rem 0 $primaryViolet;
+  }
+}
+
+@keyframes shadowing {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.015);
+  }
+}
+
+@keyframes flickering {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

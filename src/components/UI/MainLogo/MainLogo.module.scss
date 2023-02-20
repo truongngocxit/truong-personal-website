@@ -1,0 +1,17 @@
+@use "../../../sassStyles/variables" as *;
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+
+  &__icon {
+    width: 4.2rem;
+    height: 4.2rem;
+  }
+
+  &__name {
+    font-size: 1.8rem;
+  }
+}

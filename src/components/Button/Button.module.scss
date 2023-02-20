@@ -1,0 +1,36 @@
+@use "../../sassStyles/variables" as *;
+
+.button {
+  background: none;
+  border: $border;
+  padding: 1.5rem 3rem;
+  font-weight: 700;
+
+  width: 100%;
+  transition: all 0.3s;
+  position: relative;
+
+  &--primary {
+    background-color: $primaryViolet;
+
+    &:hover {
+      color: $primaryViolet;
+      box-shadow: 0.4rem 0.4rem 0 $primaryViolet;
+    }
+  }
+
+  &--secondary {
+    background-color: $primaryBlue;
+
+    &:hover {
+      color: $primaryBlue;
+      box-shadow: 0.4rem 0.4rem 0 $primaryBlue;
+    }
+  }
+
+  &:hover {
+    transform: translate(-0.4rem, -0.4rem);
+    background-color: $primaryDark;
+    z-index: 5;
+  }
+}

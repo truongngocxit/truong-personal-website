@@ -1,0 +1,44 @@
+@use "../../../sassStyles/variables" as *;
+@use "../../../sassStyles//animations" as *;
+
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  &__heading {
+    font-size: 2.8rem;
+    line-height: 4rem;
+  }
+
+  &__cursor {
+    color: $primaryViolet;
+    background-color: $primaryViolet;
+    width: 1.5rem;
+    height: 2.8rem;
+    display: inline-block;
+
+    &--running {
+      animation: flickering 0.2s infinite alternate;
+    }
+
+    &--paused {
+      color: $primaryViolet;
+      background-color: $primaryViolet;
+    }
+  }
+
+  &__nav-buttons {
+    display: grid;
+    gap: 1.5rem;
+    padding-top: 2rem;
+    grid-template-columns: repeat(2, minmax(max-content, 18rem));
+  }
+
+  &__nav-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+}
