@@ -1,10 +1,12 @@
 @use "../../sassStyles/variables" as *;
+@use "../../sassStyles/animations" as *;
 
 .hero {
   height: 100vh;
   display: grid;
   grid-template-rows: max-content 1fr;
   padding: 4rem 12rem;
+  position: relative;
 
   &__main {
     align-self: center;
@@ -17,5 +19,40 @@
 
   &__avatar {
     place-self: center;
+  }
+
+  &__scrollButton {
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 4.6rem;
+    transition: all 0.3s;
+    display: grid;
+    grid-template-rows: max-content 4.6rem;
+    gap: 1rem;
+    place-items: center;
+
+    &__Label {
+      font-family: "Press Start 2P", cursive;
+      font-size: 1rem;
+      transition: all 0.3s;
+      transform: translateY(3rem);
+    }
+
+    &__Icon {
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      z-index: 1;
+    }
+
+    // &:hover {
+    //   transform: translate(-50%, 0.5rem);
+    // }
+
+    &:hover &__Label {
+      transform: translateY(0);
+    }
   }
 }

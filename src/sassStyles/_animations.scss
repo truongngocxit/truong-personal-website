@@ -3,12 +3,10 @@
 @keyframes hovering {
   0% {
     transform: translate(0, 0);
-    //box-shadow: 0.5rem 0.5rem 0 $primaryViolet;
   }
 
   100% {
     transform: translate(-0.5rem, -0.5rem);
-    // box-shadow: 0.5rem 0.5rem 0 $primaryViolet;
   }
 }
 
@@ -23,6 +21,16 @@
 }
 
 @keyframes flickering {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes sliding {
   0% {
     opacity: 0;
   }
