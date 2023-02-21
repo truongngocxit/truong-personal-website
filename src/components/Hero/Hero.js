@@ -3,10 +3,14 @@ import MainLogo from "../UI/MainLogo/MainLogo";
 import ScrollDownIcon from "../UI/SVG/ScrollDownIcon";
 import Avatar from "./Avatar/Avatar";
 import About from "./About/About";
+import MoreIcon from "../UI/SVG/MoreIcon";
 
-const Hero = function () {
+const Hero = function ({ className = "" }) {
   return (
-    <div className={css["hero"]}>
+    <div className={`${css["hero"]} ${className}`}>
+      <button className={css["hero__menu-button"]}>
+        <MoreIcon className={css["hero__menu-button__icon"]} />
+      </button>
       <MainLogo />
       <main className={css["hero__main"]}>
         <About />

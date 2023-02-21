@@ -1,0 +1,93 @@
+@use "../../sassStyles/variables" as *;
+
+.footer {
+  //   height: 40rem;
+  border: $border;
+  margin: 6rem 12rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: max-content;
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 4.2rem;
+    border-right: $border;
+    padding: 4rem 6rem;
+
+    &__items {
+      display: flex;
+      list-style: none;
+      flex-direction: column;
+      gap: 1.6rem;
+    }
+
+    &__item {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-weight: 500;
+    }
+  }
+
+  &__channels {
+    padding: 2rem 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4.2rem;
+    padding: 4rem 6rem;
+
+    &__list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(2, max-content);
+      justify-content: space-around;
+      gap: 2.8rem;
+    }
+
+    &__item {
+      display: grid;
+      grid-template-rows: 3.2rem max-content;
+      gap: 1.5rem;
+      justify-items: center;
+      text-align: center;
+      font-weight: 500;
+      padding: 1.5rem 2rem;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      &:hover {
+        background-color: $primaryDark;
+        color: #fff;
+        transform: translate(-0.5rem, -0.5rem);
+        box-shadow: 0.5rem 0.5rem 0 $primaryViolet;
+      }
+
+      &-icon {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  &__foot {
+    border-top: $border;
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 4rem;
+  }
+
+  &__logo {
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+
+    &-icon {
+      width: 3.2rem;
+      height: 3.2rem;
+    }
+  }
+}

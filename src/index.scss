@@ -25,6 +25,10 @@ button {
   background: none;
   color: inherit;
   cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
 }
 
 h1,
@@ -37,6 +41,7 @@ svg {
   width: 2rem;
   height: 2rem;
   stroke: #333;
+  display: block;
 }
 
 code {

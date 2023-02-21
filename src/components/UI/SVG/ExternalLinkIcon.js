@@ -1,34 +1,21 @@
 export default function ExternalLinkIcon({ className, color }) {
   return (
     <svg
-      version="1.0"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="currentColor"
       xmlns="http://www.w3.org/2000/svg"
-      width="1600.000000pt"
-      height="1600.000000pt"
-      viewBox="0 0 1600.000000 1600.000000"
-      preserveAspectRatio="xMidYMid meet"
+      className={className}
     >
-      <g
-        transform="translate(0.000000,1600.000000) scale(0.100000,-0.100000)"
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M21 11V5V3H19H13V5H17V7H15V9H13V11H11V13H9V15H11V13H13V11H15V9H17V7H19V11H21ZM11 5H5H3V7V19V21H5H17H19V19V13H17V19H5V7H11V5Z"
         fill="currentColor"
-        stroke="none"
-        className={className}
-      >
-        <path
-          d="M8000 15200 l0 -800 2400 0 2400 0 0 -800 0 -800 -800 0 -800 0 0
-   -800 0 -800 -800 0 -800 0 0 -800 0 -800 -800 0 -800 0 0 -800 0 -800 -800 0
-   -800 0 0 -800 0 -800 -800 0 -800 0 0 -800 0 -800 -800 0 -800 0 0 -800 0
-   -800 800 0 800 0 0 800 0 800 800 0 800 0 0 800 0 800 800 0 800 0 0 800 0
-   800 800 0 800 0 0 800 0 800 800 0 800 0 0 800 0 800 800 0 800 0 0 800 0 800
-   800 0 800 0 0 -2400 0 -2400 800 0 800 0 0 4000 0 4000 -4000 0 -4000 0 0
-   -800z"
-        />
-        <path
-          d="M0 7200 l0 -7200 7200 0 7200 0 0 3200 0 3200 -800 0 -800 0 0 -2400
-   0 -2400 -5600 0 -5600 0 0 5600 0 5600 2400 0 2400 0 0 800 0 800 -3200 0
-   -3200 0 0 -7200z"
-        />
-      </g>
+        stroke="currentColor"
+        strokeWidth={0.2}
+      />
     </svg>
   );
 }

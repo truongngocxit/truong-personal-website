@@ -4,27 +4,56 @@
   position: relative;
 
   &__imgs {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    width: 100%;
     height: 100%;
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: 100%;
+    grid-auto-rows: 100%;
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
-
     -ms-overflow-style: none;
     scrollbar-width: none;
+    transition: all 0.3s;
+    box-shadow: 0 0 0 0.3rem $primaryDark;
 
     &::-webkit-scrollbar {
       display: none;
+    }
+
+    &:hover {
+      transform: translate(-50%, -50%) scale(1.3);
+
+      &::before {
+        position: absolute;
+        top: 0;
+        content: "PREVIEW";
+        font-weight: 700;
+        text-align: center;
+        font-size: 1.2rem;
+        padding: 1rem;
+        width: 100%;
+        height: auto;
+        border-bottom: $border;
+        background-color: #fff;
+        outline: none;
+      }
     }
   }
 
   &__img {
     scroll-snap-align: center;
-    width: 100%;
+    min-width: 100%;
     height: 100%;
     display: block;
     object-fit: cover;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
   }
 
   &__dots {
@@ -40,8 +69,9 @@
     border-radius: 50%;
     width: 1.5rem;
     height: 1.5rem;
-
+    background-color: $primaryDark;
     border: $border;
+    transition: all 0.3s;
 
     &--active {
       background-color: $primaryViolet;

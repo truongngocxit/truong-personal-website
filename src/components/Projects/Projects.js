@@ -3,17 +3,36 @@ import ChevronLeft from "../UI/SVG/ChevronLeft";
 import ChevronRight from "../UI/SVG/ChevronRight";
 import ExternalLinkIcon from "../UI/SVG/ExternalLinkIcon";
 import PreviewImages from "./PreviewImages/PreviewImages";
+import { useState } from "react";
 
-const Projects = function ({ className }) {
+const Projects = function ({ className = "" }) {
+  const [projectIndex, setProjectIndex] = useState(0);
+
+  const handleIncreaseProjectIndex = function () {
+    setProjectIndex((index) => index + 1);
+  };
+
+  const handleDecreaseProjectIndex = function () {
+    setProjectIndex((index) => index - 1);
+  };
+
   return (
-    <div className={css["projects"]}>
+    <div className={`${css["projects"]} ${className}`}>
       <div className={css["projects__head"]}>
         <h2 className={css["projects__heading"]}>MY PROJECTS</h2>
         <div className={css["projects__nav"]}>
-          <button className={css["projects__nav-button"]}>
+          <button
+            className={css["projects__nav-button"]}
+            onClick={handleDecreaseProjectIndex}
+            disabled={projectIndex === 0}
+          >
             <ChevronLeft />
           </button>
-          <button className={css["projects__nav-button"]}>
+          <button
+            className={css["projects__nav-button"]}
+            onClick={handleIncreaseProjectIndex}
+            disabled={projectIndex === Object.entries(projects).length - 1}
+          >
             <ChevronRight />
           </button>
         </div>
@@ -40,12 +59,25 @@ const Projects = function ({ className }) {
           </button>
         </div>
       </main>
-      <PreviewImages images={stayfyImages} />
+      <PreviewImages images={Object.entries(projects)[projectIndex][1]} />
     </div>
   );
 };
 
 export default Projects;
+
+const projects = {
+  stayfy: [
+    require("../../assets/stayfy-background.png"),
+    require("../../assets/stayfy-detail.png"),
+    require("../../assets/stayfy-home.png"),
+  ],
+  jane: [
+    require("../../assets/jane-background.png"),
+    require("../../assets/jane-home.png"),
+    require("../../assets/jane-store.png"),
+  ],
+};
 
 const stayfyImages = [
   require("../../assets/stayfy-background.png"),

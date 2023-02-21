@@ -12,7 +12,7 @@ import FirebaseIcon from "../UI/SVG/FirebaseIcon";
 import FigmaIcon from "../UI/SVG/FigmaIcon";
 import IllustratorIcon from "../UI/SVG/IllustratorIcon";
 
-const Skills = function () {
+const Skills = function ({ className = "" }) {
   const [activeTab, setActiveTab] = useState("frontEnd");
   const handleChangeActiveTab = function () {
     setActiveTab(this);
@@ -31,7 +31,7 @@ const Skills = function () {
   }
 
   return (
-    <div className={css["skills"]}>
+    <div className={`${css["skills"]} ${className}`}>
       <h2 className={css["skills__heading"]}>MY SKILLS</h2>
       <div className={css["skills__section"]}>
         <div className={css["skills__nav"]}>
@@ -88,7 +88,7 @@ const frontEndSkills = [
   {
     id: "javascript",
     label: "JavaScript",
-    percent: 98,
+    percent: 95,
     icon: <JSIcon />,
   },
   {
