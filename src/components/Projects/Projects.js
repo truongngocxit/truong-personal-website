@@ -3,6 +3,11 @@ import ChevronLeft from "../UI/SVG/ChevronLeft";
 import ChevronRight from "../UI/SVG/ChevronRight";
 import ExternalLinkIcon from "../UI/SVG/ExternalLinkIcon";
 import PreviewImages from "./PreviewImages/PreviewImages";
+import DatabaseIcon from "../UI/SVG/DatabaseIcon";
+import BackendIcon from "../UI/SVG/BackendIcon";
+import FrontendIcon from "../UI/SVG/FrondendIcon";
+import CloseButton from "../CloseButton/CloseButton";
+import CloseIcon from "../UI/SVG/CloseIcon";
 import { useState } from "react";
 
 const Projects = function ({ className = "" }) {
@@ -35,14 +40,30 @@ const Projects = function ({ className = "" }) {
           >
             <ChevronRight />
           </button>
+          <CloseButton />
         </div>
       </div>
       <main className={css["projects__overview"]}>
         <h3>Stayfy - an online homestay booking app</h3>
-        <ul>
-          <li>Front-end: ReactJS & Pure SCSS/CSS</li>
-          <li>Back-end: NodeJS with ExpressJS</li>
-          <li>Database: Firestore</li>
+        <ul className={css["projects__info-list"]}>
+          <li className={css["projects__info-item"]}>
+            <FrontendIcon />
+            <span>
+              <strong>Front-end:</strong> ReactJS & Pure SCSS/CSS
+            </span>
+          </li>
+          <li className={css["projects__info-item"]}>
+            <BackendIcon />
+            <span>
+              <strong>Back-end:</strong> NodeJS with ExpressJS
+            </span>
+          </li>
+          <li className={css["projects__info-item"]}>
+            <DatabaseIcon />
+            <span>
+              <strong>Database:</strong> Firestore
+            </span>
+          </li>
         </ul>
         <div className={css["projects__overview__links"]}>
           <button
@@ -59,7 +80,10 @@ const Projects = function ({ className = "" }) {
           </button>
         </div>
       </main>
-      <PreviewImages images={Object.entries(projects)[projectIndex][1]} />
+      <PreviewImages
+        images={Object.entries(projects)[projectIndex][1]}
+        key={Object.entries(projects)[projectIndex][0]}
+      />
     </div>
   );
 };

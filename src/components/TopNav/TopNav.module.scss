@@ -1,0 +1,49 @@
+@use "../../sassStyles/variables" as *;
+
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: $border;
+  padding: 1.5rem 12rem;
+
+  &__links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+  }
+
+  &__link {
+    padding: 0.75rem 2rem;
+    display: block;
+    font-weight: 700;
+    transition: 0.2s all;
+    cursor: pointer;
+    user-select: none;
+    //Test
+    background-color: $primaryDark;
+    // box-shadow: 0.3rem 0.3rem 0 0 $primaryViolet;
+    color: #fff;
+
+    &:hover {
+      transform: translate(-0.2rem, -0.2rem);
+      box-shadow: 0.2rem 0.2rem 0 0 $primaryViolet;
+      color: #fff;
+    }
+
+    &:active {
+      transform: translate(0, 0);
+      box-shadow: none;
+    }
+
+    // box-shadow: 0 0.3rem 0 $primaryDark, 0 -0.3rem 0 $primaryDark,
+    //   0.3rem 0 0 $primaryDark, -0.3rem 0 0 $primaryDark, inset -0.3rem 0 0 #555,
+    //   inset 0.3rem 0 0 #999;
+
+    // &:active {
+    //   transform: translateY(0.1rem);
+    //   box-shadow: 0 0.2rem 0 #aaa, 0 -0.2rem 0 #aaa, 0.2rem 0 0 #ccc,
+    //     -0.2rem 0 0 #aaa, inset -0.3rem 0 0 #555, inset 0.3rem 0 0 #999;
+    // }
+  }
+}

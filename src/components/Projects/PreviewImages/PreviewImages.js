@@ -30,12 +30,36 @@ const PreviewImages = function ({ className, images }) {
 
     return () => intersectionObserver.disconnect();
   }, [images]);
+
+  const [previewIsHovered, setPreviewIsHovered] = useState(false);
+
+  const handleHoverPreview = function () {
+    setPreviewIsHovered(true);
+  };
+
+  const handleUnhoverPreview = function () {
+    setPreviewIsHovered(false);
+  };
+
+  const handleScrollToImage = function () {
+    imagesRef.current[this].scrollIntoView({
+      behavior: "smooth",
+    });
+  };
+
   return (
     <main
       className={`${css["preview-images"]} ${className || ""}`}
       ref={containerRef}
+      onMouseEnter={handleHoverPreview}
+      onMouseLeave={handleUnhoverPreview}
     >
-      <div className={css["preview-images__imgs"]}>
+      {/* <div className={css["preview-images__imgs"]}></div> */}
+      <div
+        className={`${css["preview-images__imgs"]} ${
+          previewIsHovered ? css["preview-images__imgs--popout"] : ""
+        }`}
+      >
         {images.map((img) => (
           <img
             key={img}
@@ -60,6 +84,7 @@ const PreviewImages = function ({ className, images }) {
             className={`${css["preview-images__dot"]} ${
               index === imageIndex ? css["preview-images__dot--active"] : ""
             }`}
+            onClick={handleScrollToImage.bind(index)}
           />
         ))}
       </div>

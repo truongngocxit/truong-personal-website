@@ -2,11 +2,15 @@
 @use "../../sassStyles/animations" as *;
 
 .hero {
-  height: 100vh;
+  height: 80vh;
   display: grid;
-  grid-template-rows: max-content 1fr;
-  padding: 4rem 12rem;
+  // grid-template-rows: max-content 1fr;
+
   position: relative;
+
+  &__logo {
+    justify-self: center;
+  }
 
   &__menu-button {
     position: absolute;
@@ -29,6 +33,7 @@
     grid-template-columns: 2fr 40%;
     column-gap: 4rem;
     align-items: center;
+    padding: 4rem 12rem;
   }
 
   &__avatar {

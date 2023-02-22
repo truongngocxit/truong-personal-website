@@ -7,6 +7,8 @@
   grid-template-columns: 1.2fr 1fr;
   box-shadow: 1rem 1rem 0 $primaryViolet;
 
+  background-color: #fff;
+
   &__head {
     padding: 2rem 4rem;
     display: flex;
@@ -57,7 +59,7 @@
     border-right: $border;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.75rem;
     padding: 4rem;
 
     &__links {
@@ -94,6 +96,20 @@
         }
       }
     }
+  }
+
+  &__info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    list-style: none;
+  }
+
+  &__info-item {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    font-weight: 500;
   }
 
   &__preview {
