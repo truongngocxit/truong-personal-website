@@ -2,6 +2,7 @@ import css from "./Avatar.module.scss";
 import { useState } from "react";
 import ExpandIcon from "../../UI/SVG/ExpandIcon";
 import CollapseIcon from "../../UI/SVG/CollapseIcon";
+import ToolTip from "../../Tooltip/ToolTip";
 
 const Avatar = function ({ className }) {
   const [avatarIsShown, setAvatarIsShown] = useState(true);
@@ -17,12 +18,21 @@ const Avatar = function ({ className }) {
       >
         <div className={css["avatar__nav"]}>
           <span className={css["avatar__name"]}>My Avatar.png</span>
-          <button
-            className={css["avatar__close"]}
-            onClick={handleToggleAvatarState}
+          <ToolTip
+            message={
+              avatarIsShown
+                ? "Don't want to see my face?"
+                : "Click to see my face"
+            }
+            position="top"
           >
-            {avatarIsShown ? <CollapseIcon /> : <ExpandIcon />}
-          </button>
+            <button
+              className={css["avatar__close"]}
+              onClick={handleToggleAvatarState}
+            >
+              {avatarIsShown ? <CollapseIcon /> : <ExpandIcon />}
+            </button>
+          </ToolTip>
         </div>
         <img
           className={`${css["avatar__image"]} `}

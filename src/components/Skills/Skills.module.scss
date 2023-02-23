@@ -1,13 +1,22 @@
 @use "../../sassStyles/variables" as *;
 
 .skills {
-  margin: 4rem 12rem;
-  display: flex;
-  // width: 100%;
-  flex-direction: column;
-  gap: 4rem;
+  display: grid;
+
+  grid-auto-flow: row;
+  box-shadow: 0.5rem 0.5rem 0 $primaryViolet;
   //   position: relative;
-  // background-color: #fff;
+  background-color: #fff;
+  border: $border;
+
+  //large screen only
+  width: max-content;
+}
+
+.skills__heading {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 .skills__section {
@@ -18,14 +27,14 @@
   grid-auto-flow: column;
   grid-auto-columns: max-content;
   width: max-content;
-  border: $border;
+  border-top: $border;
   border-bottom: none;
   border-right: none;
   position: relative;
   top: 0.3rem;
 
   &-button {
-    padding: 2rem 4rem;
+    padding: 1.5rem 4rem;
     font-weight: 700;
     background-color: #ccc;
     border-right: $border;
@@ -40,15 +49,15 @@
 
 .skills__content {
   background-color: #fff;
-  padding: 8rem 0;
-  border: $border;
+  width: 75vw;
+  padding: 8rem 6rem;
+  border-top: $border;
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: max-content;
   place-content: center;
-  gap: 8rem;
-  width: 100%;
-  box-shadow: 1rem 1rem 0 0 $primaryViolet;
+  gap: 6rem;
+  height: 30rem;
 }
 
 .skills__heading {

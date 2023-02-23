@@ -3,18 +3,18 @@ import ScrollDownIcon from "../UI/SVG/ScrollDownIcon";
 import Avatar from "./Avatar/Avatar";
 import About from "./About/About";
 import TopNav from "../TopNav/TopNav";
+import LoadingBar from "../UI/LoadingBar/LoadingBar";
 
-const Hero = function ({ className = "" }) {
+const Hero = function ({ className = "", onOpenProjects, onOpenCV }) {
   return (
     <div className={`${css["hero"]} ${className}`}>
       <main className={css["hero__main"]}>
-        <About />
+        <About onOpenProjects={onOpenProjects} onOpenCV={onOpenCV} />
 
         <Avatar className={css["hero__avatar"]} />
-        <button className={css["hero__scrollButton"]}>
-          <span className={css["hero__scrollButton__Label"]}>DOWN</span>
-          <ScrollDownIcon className={css["hero__scrollButton__Icon"]} />
-        </button>
+        {/* <button className={css["hero__scrollButton"]}>
+          <LoadingBar className={css["hero__scrollButton__Icon"]} />
+        </button> */}
       </main>
     </div>
   );

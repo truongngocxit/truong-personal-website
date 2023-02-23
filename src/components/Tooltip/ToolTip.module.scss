@@ -1,0 +1,63 @@
+@use "../../sassStyles/variables" as *;
+
+.tooltip-container {
+  position: relative;
+}
+
+.tooltip {
+  position: absolute;
+  background-color: $primaryDark;
+  box-shadow: 0.4rem 0 0 $primaryDark, -0.4rem 0 0 $primaryDark,
+    0 0.4rem 0 $primaryDark, 0 -0.4rem 0 $primaryDark;
+  border: $border;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 150%);
+  padding: 0.5rem 1rem;
+  color: #fff;
+  transition: 0.3s all;
+  z-index: 200;
+  font-weight: 700;
+
+  &--top {
+    top: 0;
+    transform: translate(-50%, -140%);
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      background-color: $primaryDark;
+      // box-shadow: inset 0 0 0 0.3rem $primaryBlue;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, 100%);
+      width: 2rem;
+      height: 1.2rem;
+      clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+    }
+  }
+
+  &--bottom {
+    bottom: 0;
+    transform: translate(-50%, 140%);
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      background-color: $primaryDark;
+      // box-shadow: inset 0 0 0 0.3rem $primaryBlue;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -100%);
+      width: 2rem;
+      height: 1.2rem;
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    }
+  }
+
+  &__message {
+    white-space: nowrap;
+  }
+}

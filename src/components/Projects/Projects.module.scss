@@ -2,12 +2,18 @@
 
 .projects {
   border: $border;
-  margin: 4rem 12rem;
+  //margin: 4rem 12rem;
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  box-shadow: 1rem 1rem 0 $primaryViolet;
-
+  grid-template-columns: 1fr 50%;
+  box-shadow: 0.5rem 0.5rem 0 $primaryViolet;
   background-color: #fff;
+  grid-template-rows: max-content 50vh;
+  width: 75vw;
+
+  &__loading-bar {
+    grid-column: 1 / -1;
+    place-self: center;
+  }
 
   &__head {
     padding: 2rem 4rem;
@@ -79,6 +85,7 @@
       gap: 1.5rem;
       justify-content: center;
       transition: all 0.3s;
+      cursor: pointer;
 
       &--prod {
         background-color: $primaryDark;

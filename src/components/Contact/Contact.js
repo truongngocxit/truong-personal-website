@@ -1,5 +1,4 @@
 import css from "./Contact.module.scss";
-import BareLogo from "../UI/SVG/BareLogo";
 import PhoneIcon from "../UI/SVG/PhoneIcon";
 import MailIcon from "../UI/SVG/MailIcon";
 import GithubIcon from "../UI/SVG/GithubIcon";
@@ -7,14 +6,19 @@ import InstagramIcon from "../UI/SVG/InstagramIcon";
 import FacebookIcon from "../UI/SVG/FacebookIcon";
 import LinkedinIcon from "../UI/SVG/LinkedinIcon";
 import MainLogo from "../UI/MainLogo/MainLogo";
+import CloseButton from "../CloseButton/CloseButton";
 
-const Contact = function ({ className = "" }) {
+const Contact = function ({ className = "", onClose }) {
   return (
     <footer className={`${css["contact"]} ${className}`}>
+      <header className={css["contact__header"]}>
+        <h2>CONTACTS</h2>
+        <CloseButton onClose={onClose} />
+      </header>
       <div className={css["contact__contacts"]}>
-        <h3 className={css["contact__contacts__heading"]}>
+        <h4 className={css["contact__contacts__heading"]}>
           {">"} CONTACT INFO
-        </h3>
+        </h4>
         <ul className={css["contact__contacts__items"]}>
           <li className={css["contact__contacts__item"]}>
             <MailIcon />
@@ -27,7 +31,7 @@ const Contact = function ({ className = "" }) {
         </ul>
       </div>
       <div className={css["contact__channels"]}>
-        <h3 className={css["contact__channels__heading"]}>{">"} MY CHANNELS</h3>
+        <h4 className={css["contact__channels__heading"]}>{">"} MY CHANNELS</h4>
         <ul className={css["contact__channels__list"]}>
           <li className={css["contact__channels__item"]}>
             <GithubIcon className={css["contact__channels__item-icon"]} />

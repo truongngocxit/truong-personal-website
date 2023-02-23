@@ -7,10 +7,11 @@ import DatabaseIcon from "../UI/SVG/DatabaseIcon";
 import BackendIcon from "../UI/SVG/BackendIcon";
 import FrontendIcon from "../UI/SVG/FrondendIcon";
 import CloseButton from "../CloseButton/CloseButton";
-import CloseIcon from "../UI/SVG/CloseIcon";
+import useFetchData from "../../custom-hooks/useFetchData";
+import LoadingBar from "../UI/LoadingBar/LoadingBar";
 import { useState } from "react";
 
-const Projects = function ({ className = "" }) {
+const Projects = function ({ className = "", onClose }) {
   const [projectIndex, setProjectIndex] = useState(0);
 
   const handleIncreaseProjectIndex = function () {
@@ -21,6 +22,29 @@ const Projects = function ({ className = "" }) {
     setProjectIndex((index) => index - 1);
   };
 
+  const { isLoading, error, data } = useFetchData("projects", (rawData) =>
+    Object.entries(rawData).map((e) => ({ id: e[0], ...e[1] }))
+  );
+
+  console.log(data);
+  // if (data) {
+  //   cleansedData = Object.entries(data).map((e) => ({ id: e[0], ...e[1] }));
+  // }
+
+  let images;
+  if (data) {
+    images = Object.entries(data[projectIndex].images).reduce(
+      (imagesList, currentEntry) => {
+        if (currentEntry[0] === "mainImg") {
+          return [currentEntry[1], ...imagesList];
+        } else {
+          return [...imagesList, currentEntry[1]];
+        }
+      },
+      []
+    );
+  }
+
   return (
     <div className={`${css["projects"]} ${className}`}>
       <div className={css["projects__head"]}>
@@ -29,61 +53,70 @@ const Projects = function ({ className = "" }) {
           <button
             className={css["projects__nav-button"]}
             onClick={handleDecreaseProjectIndex}
-            disabled={projectIndex === 0}
+            disabled={!data || projectIndex === 0}
           >
             <ChevronLeft />
           </button>
           <button
             className={css["projects__nav-button"]}
             onClick={handleIncreaseProjectIndex}
-            disabled={projectIndex === Object.entries(projects).length - 1}
+            disabled={!data || (images && projectIndex === images.length - 1)}
           >
             <ChevronRight />
           </button>
-          <CloseButton />
+          <CloseButton onClose={onClose} />
         </div>
       </div>
-      <main className={css["projects__overview"]}>
-        <h3>Stayfy - an online homestay booking app</h3>
-        <ul className={css["projects__info-list"]}>
-          <li className={css["projects__info-item"]}>
-            <FrontendIcon />
-            <span>
-              <strong>Front-end:</strong> ReactJS & Pure SCSS/CSS
-            </span>
-          </li>
-          <li className={css["projects__info-item"]}>
-            <BackendIcon />
-            <span>
-              <strong>Back-end:</strong> NodeJS with ExpressJS
-            </span>
-          </li>
-          <li className={css["projects__info-item"]}>
-            <DatabaseIcon />
-            <span>
-              <strong>Database:</strong> Firestore
-            </span>
-          </li>
-        </ul>
-        <div className={css["projects__overview__links"]}>
-          <button
-            className={`${css["projects__overview__link"]} ${css["projects__overview__link--prod"]}`}
-          >
-            <span>PROD.</span>
-            <ExternalLinkIcon />
-          </button>
-          <button
-            className={`${css["projects__overview__link"]} ${css["projects__overview__link--code"]}`}
-          >
-            <span>CODE</span>
-            <ExternalLinkIcon />
-          </button>
+      {isLoading && (
+        <div className={css["projects__loading-bar"]}>
+          <LoadingBar />
         </div>
-      </main>
-      <PreviewImages
-        images={Object.entries(projects)[projectIndex][1]}
-        key={Object.entries(projects)[projectIndex][0]}
-      />
+      )}
+      {!isLoading && data !== null && (
+        <>
+          <main className={css["projects__overview"]}>
+            <h3>{data[projectIndex].title}</h3>
+            <ul className={css["projects__info-list"]}>
+              <li className={css["projects__info-item"]}>
+                <FrontendIcon />
+                <span>
+                  <strong>Front-end:</strong>{" "}
+                  {data[projectIndex].details.frontEnd}
+                </span>
+              </li>
+              <li className={css["projects__info-item"]}>
+                <BackendIcon />
+                <span>
+                  <strong>Back-end:</strong>{" "}
+                  {data[projectIndex].details.frontEnd}
+                </span>
+              </li>
+              <li className={css["projects__info-item"]}>
+                <DatabaseIcon />
+                <span>
+                  <strong>Database:</strong>{" "}
+                  {data[projectIndex].details.database}
+                </span>
+              </li>
+            </ul>
+            <div className={css["projects__overview__links"]}>
+              <a
+                className={`${css["projects__overview__link"]} ${css["projects__overview__link--prod"]}`}
+              >
+                <span>PROD.</span>
+                <ExternalLinkIcon />
+              </a>
+              <a
+                className={`${css["projects__overview__link"]} ${css["projects__overview__link--code"]}`}
+              >
+                <span>CODE</span>
+                <ExternalLinkIcon />
+              </a>
+            </div>
+          </main>
+          <PreviewImages images={images} key={data[projectIndex].id} />
+        </>
+      )}
     </div>
   );
 };
@@ -102,15 +135,3 @@ const projects = {
     require("../../assets/jane-store.png"),
   ],
 };
-
-const stayfyImages = [
-  require("../../assets/stayfy-background.png"),
-  require("../../assets/stayfy-detail.png"),
-  require("../../assets/stayfy-home.png"),
-];
-
-const janeImages = [
-  require("../../assets/jane-background.png"),
-  require("../../assets/jane-home.png"),
-  require("../../assets/jane-store.png"),
-];

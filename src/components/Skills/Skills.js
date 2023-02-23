@@ -1,5 +1,4 @@
 import css from "./Skills.module.scss";
-import { useState } from "react";
 import SkillItem from "./SkillItem/SkillItem";
 import ReactIcon from "../UI/SVG/ReactIcon";
 import JSIcon from "../UI/SVG/JSIcon";
@@ -11,43 +10,65 @@ import NodeIcon from "../UI/SVG/NodeIcon";
 import FirebaseIcon from "../UI/SVG/FirebaseIcon";
 import FigmaIcon from "../UI/SVG/FigmaIcon";
 import IllustratorIcon from "../UI/SVG/IllustratorIcon";
+import CloseButton from "../CloseButton/CloseButton";
+import { useEffect, useState } from "react";
+import LoadingBar from "../UI/LoadingBar/LoadingBar";
+import promisifiedTimeout from "../../utils/promisifiedTimeout";
 
-const Skills = function ({ className = "" }) {
-  const [activeTab, setActiveTab] = useState("frontEnd");
+const Skills = function ({ className = "", onClose }) {
+  const [activeTab, setActiveTab] = useState("front-end");
+  const [isLoading, setIsLoading] = useState(false);
   const handleChangeActiveTab = function () {
     setActiveTab(this);
   };
 
-  let skills = frontEndSkills;
+  const [skillsData, setSkillsData] = useState(null);
 
-  if (activeTab === "frontEnd") {
-    skills = frontEndSkills;
-  }
-  if (activeTab === "backEnd") {
-    skills = backendSkills;
-  }
-  if (activeTab === "design") {
-    skills = designSkills;
-  }
+  useEffect(() => {
+    (async function () {
+      setIsLoading(true);
+      const response = await fetch(
+        "https://personal-738e0-default-rtdb.asia-southeast1.firebasedatabase.app/skills.json"
+      );
+      const data = await response.json();
+      const cleansedData = Object.entries(data).reduce(
+        (cleansedData, currentObject) => ({
+          ...cleansedData,
+          [currentObject[0]]: Object.entries(currentObject[1]).map((e) => ({
+            label: e[0],
+            ...e[1],
+            icon: icons[e[1].id],
+          })),
+        }),
+        {}
+      );
+      await promisifiedTimeout(2);
+      setSkillsData(cleansedData);
+      setIsLoading(false);
+    })();
+  }, []);
 
   return (
     <div className={`${css["skills"]} ${className}`}>
-      <h2 className={css["skills__heading"]}>MY SKILLS</h2>
+      <div className={css["skills__heading"]}>
+        <h2>MY SKILLS</h2>
+        <CloseButton onClose={onClose} />
+      </div>
       <div className={css["skills__section"]}>
         <div className={css["skills__nav"]}>
           <button
             className={`${css["skills__nav-button"]} ${
-              activeTab === "frontEnd" ? css["skills__nav-button--active"] : ""
+              activeTab === "front-end" ? css["skills__nav-button--active"] : ""
             }`}
-            onClick={handleChangeActiveTab.bind("frontEnd")}
+            onClick={handleChangeActiveTab.bind("front-end")}
           >
             FRONT-END
           </button>
           <button
             className={`${css["skills__nav-button"]} ${
-              activeTab === "backEnd" ? css["skills__nav-button--active"] : ""
+              activeTab === "back-end" ? css["skills__nav-button--active"] : ""
             }`}
-            onClick={handleChangeActiveTab.bind("backEnd")}
+            onClick={handleChangeActiveTab.bind("back-end")}
           >
             BACK-END
           </button>
@@ -61,15 +82,18 @@ const Skills = function ({ className = "" }) {
           </button>
         </div>
         <div className={css["skills__content"]}>
-          {skills.map((skill) => (
-            <SkillItem
-              key={skill.id}
-              label={skill.label}
-              percent={skill.percent}
-            >
-              {skill.icon}
-            </SkillItem>
-          ))}
+          {isLoading && <LoadingBar />}
+          {!isLoading &&
+            skillsData !== null &&
+            skillsData[activeTab].map((skill) => (
+              <SkillItem
+                key={skill.id}
+                label={skill.label}
+                percent={skill.experience}
+              >
+                {skill.icon}
+              </SkillItem>
+            ))}
         </div>
       </div>
     </div>
@@ -77,6 +101,19 @@ const Skills = function ({ className = "" }) {
 };
 
 export default Skills;
+
+const icons = {
+  react: <ReactIcon />,
+  javascript: <JSIcon />,
+  html: <HTMLIcon />,
+  css: <CSSIcon />,
+  sass: <SASSIcon />,
+  nodejs: <NodeIcon />,
+  firebase: <FirebaseIcon />,
+  python: <PythonIcon />,
+  figma: <FigmaIcon />,
+  illustrator: <IllustratorIcon />,
+};
 
 const frontEndSkills = [
   {

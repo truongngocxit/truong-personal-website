@@ -54,7 +54,6 @@ const PreviewImages = function ({ className, images }) {
       onMouseEnter={handleHoverPreview}
       onMouseLeave={handleUnhoverPreview}
     >
-      {/* <div className={css["preview-images__imgs"]}></div> */}
       <div
         className={`${css["preview-images__imgs"]} ${
           previewIsHovered ? css["preview-images__imgs--popout"] : ""

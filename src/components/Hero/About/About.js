@@ -2,9 +2,10 @@ import css from "./About.module.scss";
 import Button from "../../Button/Button";
 import FolderIcon from "../../UI/SVG/FolderIcon";
 import ProfileIcon from "../../UI/SVG/ProfileIcon";
+import ToolTip from "../../Tooltip/ToolTip";
 import { useState, useEffect } from "react";
 
-const About = function ({ className }) {
+const About = function ({ className, onOpenProjects, onOpenCV }) {
   const [numOfLetter, setNumOfLetter] = useState(0);
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [isTyping, setIsTyping] = useState(true);
@@ -55,14 +56,22 @@ const About = function ({ className }) {
         Currently, I'm looking for a ReactJS fresher opportunity.
       </p>
       <div className={css["about__nav-buttons"]}>
-        <Button className={css["about__nav-button"]}>
-          <span>MY PROJECTS</span>
-          <FolderIcon />
-        </Button>
-        <Button isPrimary={false} className={css["about__nav-button"]}>
-          <span>MY CV</span>
-          <ProfileIcon />
-        </Button>
+        <ToolTip message="View my recent projects">
+          <Button className={css["about__nav-button"]} onClick={onOpenProjects}>
+            <span>MY PROJECTS</span>
+            <FolderIcon />
+          </Button>
+        </ToolTip>
+        <ToolTip message="View my CV">
+          <Button
+            isPrimary={false}
+            className={css["about__nav-button"]}
+            onClick={onOpenCV}
+          >
+            <span>MY CV</span>
+            <ProfileIcon />
+          </Button>
+        </ToolTip>
       </div>
     </div>
   );

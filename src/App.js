@@ -3,61 +3,121 @@ import Skills from "./components/Skills/Skills";
 import Projects from "./components/Projects/Projects";
 import Contact from "./components/Contact/Contact";
 import TopNav from "./components/TopNav/TopNav";
-import MainLogo from "./components/UI/MainLogo/MainLogo";
-import { createPortal } from "react-dom";
 import Footer from "./components/Footer/Footer";
 import css from "./App.module.scss";
 import Modal from "./components/Modal/Modal";
-import { useReducer } from "react";
+import CVView from "./components/CVView/CVView";
+import { useReducer, useRef, useLayoutEffect, useState } from "react";
 
 const App = function () {
-  const [{ projectsIsOn, contactsIsOn, skillsIsOn }, dispatchModalAction] =
-    useReducer(modalReducer, modalInitialState);
+  // CONTROLS MODALS DISPLAY STATE
 
-  const handleOpenProjectModal = () => dispatchModalAction("PROJECTS_ON");
+  const [
+    { projectsIsOn, contactsIsOn, skillsIsOn, cvIsOn },
+    dispatchModalAction,
+  ] = useReducer(modalReducer, modalInitialState);
+
+  const handleOpenProjectModal = () => {
+    dispatchModalAction("PROJECTS_ON");
+    setTopModal("projects");
+  };
   const handleCloseProjectModal = () => dispatchModalAction("PROJECTS_OFF");
 
-  const handleOpenSkillModal = () => dispatchModalAction("SKILLS_ON");
-
+  const handleOpenSkillModal = () => {
+    dispatchModalAction("SKILLS_ON");
+    setTopModal("skills");
+  };
   const handleCloseSkillModal = () => dispatchModalAction("SKILLS_OFF");
 
-  const handleOpenContactModal = () => dispatchModalAction("CONTACTS_ON");
-
+  const handleOpenContactModal = () => {
+    dispatchModalAction("CONTACTS_ON");
+    setTopModal("contact");
+  };
   const handleCloseContactModal = () => dispatchModalAction("CONTACTS_OFF");
 
-  let modal = null;
-  if (projectsIsOn)
-    modal = (
-      <Modal>
-        <Projects />
-      </Modal>
+  const handleOpenCVModal = () => {
+    dispatchModalAction("CV_ON");
+    setTopModal("cv");
+  };
+  const handleCloseCVModal = () => dispatchModalAction("CV_OFF");
+
+  //CONTROLS MODAL STACKING ORDER
+
+  const [topModal, setTopModal] = useState("");
+
+  //SET PAGE HEIGHT
+
+  const [mainHeight, setMainHeight] = useState("auto");
+
+  const topNavRef = useRef(null);
+  const footerRef = useRef(null);
+
+  useLayoutEffect(() => {
+    setMainHeight(
+      `calc(100vh - ${
+        topNavRef.current.getBoundingClientRect().height +
+        footerRef.current.getBoundingClientRect().height
+      }px)`
     );
-  if (skillsIsOn)
-    modal = (
-      <Modal>
-        <Skills />
-      </Modal>
-    );
-  if (contactsIsOn)
-    modal = (
-      <Modal>
-        <Contact />
-      </Modal>
-    );
+  }, []);
 
   return (
     <>
       <TopNav
+        ref={topNavRef}
         onOpenProjects={handleOpenProjectModal}
         onOpenSkills={handleOpenSkillModal}
         onOpenContacts={handleOpenContactModal}
+        onOpenCV={handleOpenCVModal}
       />
-      <main className={css["main"]}>
-        <Hero className={css["hero"]} />
+      <main className={css["main"]} style={{ height: mainHeight }}>
+        <Hero
+          className={css["hero"]}
+          onOpenProjects={handleOpenProjectModal}
+          onOpenCV={handleOpenCVModal}
+        />
       </main>
-      <Footer />
+      <Footer ref={footerRef} />
 
-      {modal}
+      {cvIsOn && (
+        <Modal
+          onClose={handleCloseCVModal}
+          onClick={setTopModal.bind(null, "cv")}
+          isOnTop={topModal === "cv"}
+        >
+          <CVView />
+        </Modal>
+      )}
+
+      {contactsIsOn && (
+        <Modal
+          onClose={handleCloseContactModal}
+          onClick={setTopModal.bind(null, "contact")}
+          isOnTop={topModal === "contact"}
+        >
+          <Contact />
+        </Modal>
+      )}
+
+      {skillsIsOn && (
+        <Modal
+          onClose={handleCloseSkillModal}
+          onClick={setTopModal.bind(null, "skills")}
+          isOnTop={topModal === "skills"}
+        >
+          <Skills />
+        </Modal>
+      )}
+
+      {projectsIsOn && (
+        <Modal
+          onClose={handleCloseProjectModal}
+          onClick={setTopModal.bind(null, "projects")}
+          isOnTop={topModal === "projects"}
+        >
+          <Projects />
+        </Modal>
+      )}
     </>
   );
 };
@@ -101,6 +161,47 @@ const modalReducer = function (state, action) {
       return {
         ...state,
         contactsIsOn: false,
+      };
+    case "CV_ON":
+      return {
+        ...state,
+        cvIsOn: true,
+      };
+    case "CV_OFF":
+      return {
+        ...state,
+        cvIsOn: false,
+      };
+    default:
+      return { ...state };
+  }
+};
+
+const stackingInitialState = {
+  projectsTop: false,
+  contactsTop: false,
+  skillsTop: false,
+};
+
+const stackingReducer = function (state, action) {
+  switch (action) {
+    case "PROJECTS_TOP":
+      return {
+        projectsTop: true,
+        contactsTop: false,
+        skillsTop: false,
+      };
+    case "SKILLS_TOP":
+      return {
+        projectsTop: false,
+        contactsTop: false,
+        skillsTop: true,
+      };
+    case "CONTACTS_TOP":
+      return {
+        projectsTop: false,
+        contactsTop: true,
+        skillsTop: false,
       };
     default:
       return { ...state };
