@@ -8,35 +8,15 @@
   padding: 1.5rem 8rem;
   background-color: var(--background-color);
 
-  &__links {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
+  @media only screen and (max-width: 27em) {
+    padding: 1rem 6rem;
   }
 
-  &__link {
-    padding: 0.75rem 2rem;
-    display: block;
-    font-weight: 700;
-    transition: 0.2s all;
-    cursor: pointer;
-    user-select: none;
-    //Test
-    background-color: var(--font-color);
-    color: var(--background-color);
-    box-shadow: 0.3rem 0 0 var(--font-color), -0.3rem 0 0 var(--font-color),
-      0 0.3rem 0 var(--font-color), 0 -0.3rem 0 var(--font-color);
+  @media only screen and (max-width: 24em) {
+    padding: 1rem 4rem;
+  }
 
-    &:hover {
-      transform: translate(-0.3rem, -0.3rem);
-      box-shadow: 0.3rem 0 0 var(--font-color), -0.3rem 0 0 var(--font-color),
-        0 0.3rem 0 var(--font-color), 0 -0.3rem 0 var(--font-color),
-        0.6rem 0.3rem 0 $primaryViolet, 0.3rem 0.6rem 0 $primaryViolet;
-    }
-
-    &:active {
-      transform: translate(0, 0);
-      box-shadow: none;
-    }
+  @media only screen and (max-width: 20em) {
+    padding: 1rem 2rem;
   }
 }

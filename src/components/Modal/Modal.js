@@ -98,7 +98,7 @@ const Modal = function ({
             onPointerMove={handleCursorMove}
             onPointerUp={handleCursorUp}
           >
-            <h3>{title.toUpperCase()}</h3>
+            <h4>{title.toUpperCase()}</h4>
             <CloseButton onClose={onClose} />
           </div>
         </ToolTip>

@@ -10,22 +10,29 @@
   background-color: var(--background-color);
   width: max-content;
 
-  //large screen only
+  @media only screen and (max-width: 42em) {
+    grid-template-columns: 1fr;
+  }
 
-  // &__header {
-  //   grid-column: 1 / -1;
-  //   padding: 1rem 2rem;
-  //   border-bottom: var(--border);
-  //   display: flex;
-  //   justify-content: space-between;
-  // }
+  &__contacts,
+  &__channels {
+    padding: 4rem 6rem;
+    gap: 4.2rem;
+    @media only screen and (max-width: 48em) {
+      padding: 2rem 4rem;
+      gap: 2.4rem;
+    }
+  }
 
   &__contacts {
     display: flex;
     flex-direction: column;
-    gap: 4.2rem;
+
     border-right: var(--border);
-    padding: 4rem 6rem;
+
+    @media only screen and (max-width: 42em) {
+      border-right: none;
+    }
 
     &__items {
       display: flex;
@@ -43,18 +50,19 @@
   }
 
   &__channels {
-    padding: 2rem 4rem;
     display: flex;
     flex-direction: column;
-    gap: 4.2rem;
-    padding: 4rem 6rem;
 
     &__list {
       list-style: none;
       display: grid;
       grid-template-columns: repeat(2, max-content);
       justify-content: space-around;
-      gap: 2.8rem;
+      gap: 2.4rem;
+
+      @media only screen and (max-width: 48em) {
+        gap: 1.6rem;
+      }
     }
 
     &__item {

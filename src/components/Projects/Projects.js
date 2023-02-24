@@ -73,7 +73,9 @@ const Projects = function ({ className = "", onClose }) {
                 <ChevronRight />
               </button>
             </div>
-            <h3>{data[projectIndex].title}</h3>
+            <h3 className={css["projects__overview__name"]}>
+              {data[projectIndex].title}
+            </h3>
             <ul className={css["projects__info-list"]}>
               <li className={css["projects__info-item"]}>
                 <FrontendIcon />

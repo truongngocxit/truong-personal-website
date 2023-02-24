@@ -7,10 +7,13 @@ import Footer from "./components/Footer/Footer";
 import css from "./App.module.scss";
 import Modal from "./components/Modal/Modal";
 import CVView from "./components/CVView/CVView";
+import About from "./components/About/About";
 import { useReducer, useRef, useLayoutEffect, useState } from "react";
 
 const App = function () {
   // CONTROLS MODALS DISPLAY STATE
+
+  const [currentScreen, setCurrentScreen] = useState("laptop");
 
   const [
     { projectsIsOn, contactsIsOn, skillsIsOn, cvIsOn },
@@ -52,25 +55,20 @@ const App = function () {
   const topNavRef = useRef(null);
   const footerRef = useRef(null);
 
-  // useLayoutEffect(() => {
-  //   setMainHeight(
-  //     `calc(100vh - ${
-  //       topNavRef.current.getBoundingClientRect().height +
-  //       footerRef.current.getBoundingClientRect().height
-  //     }px)`
-  //   );
-  // }, []);
-
   useLayoutEffect(() => {
     resizeObserverRef.current = new ResizeObserver(function (entries) {
-      entries.forEach(() => {
-        setMainHeight(
-          `calc(100vh - ${
-            topNavRef.current.getBoundingClientRect().height +
-            footerRef.current.getBoundingClientRect().height
-          }px)`
-        );
-      });
+      setMainHeight(
+        `calc(100vh - ${
+          topNavRef.current.getBoundingClientRect().height +
+          footerRef.current.getBoundingClientRect().height
+        }px)`
+      );
+
+      if (entries[0].contentRect.width <= 768) {
+        setCurrentScreen("tablet");
+      } else {
+        setCurrentScreen("laptop");
+      }
     });
 
     resizeObserverRef.current.observe(document.documentElement);
@@ -86,15 +84,24 @@ const App = function () {
         onOpenSkills={handleOpenSkillModal}
         onOpenContacts={handleOpenContactModal}
         onOpenCV={handleOpenCVModal}
+        currentScreen={currentScreen}
       />
       <main className={css["main"]} style={{ height: mainHeight }}>
         <Hero
           className={css["hero"]}
           onOpenProjects={handleOpenProjectModal}
           onOpenCV={handleOpenCVModal}
+          currentScreen={currentScreen}
         />
       </main>
-      <Footer ref={footerRef} />
+      <Footer
+        ref={footerRef}
+        currentScreen={currentScreen}
+        onOpenProjects={handleOpenProjectModal}
+        onOpenSkills={handleOpenSkillModal}
+        onOpenContacts={handleOpenContactModal}
+        onOpenCV={handleOpenCVModal}
+      />
 
       {cvIsOn && (
         <Modal

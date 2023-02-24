@@ -2,16 +2,11 @@
 
 .skills {
   display: grid;
-
   grid-auto-flow: row;
-  // box-shadow: 0.5rem 0.5rem 0 $primaryViolet;
-  //   position: relative;
   background-color: var(--background-color);
   border: var(--border);
-  //border-top: 0.3rem solid (--background-color);
   border-top: none;
   box-shadow: 0 -0.6rem 0 -0.3rem var(--background-color);
-  //large screen only
   width: max-content;
 }
 
@@ -48,6 +43,10 @@
       box-shadow: 0 0.3rem 0 var(--background-color);
       color: var(--font-color);
     }
+
+    @media only screen and (max-width: 46.25em) {
+      padding: 1.5rem 2rem;
+    }
   }
 }
 
@@ -62,6 +61,17 @@
   place-content: center;
   gap: 6rem;
   height: 30rem;
+
+  @media only screen and (max-width: 46.25em) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-flow: row;
+    width: 90vw;
+    gap: 2rem 4rem;
+  }
+
+  @media only screen and (max-width: 27em) {
+    gap: 2rem;
+  }
 }
 
 .skills__heading {

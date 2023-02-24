@@ -1,0 +1,77 @@
+@use "../../sassStyles/variables" as *;
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  place-self: center;
+  justify-content: center;
+  align-items: center;
+
+  @media only screen and (max-width: 27em) {
+    gap: 1.5rem;
+  }
+
+  @media only screen and (max-width: 24em) {
+    gap: 1rem;
+  }
+}
+
+.nav-link {
+  padding: 0.8rem 2rem 0.8rem 2rem;
+  display: block;
+  font-weight: 700;
+  transition: 0.1s all;
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+  //Test
+  background-color: var(--nav-link-background-color);
+  color: #266578;
+  //transform: translateY(-0.3rem);
+  box-shadow: inset 0 -0.3rem 0 var(--nav-link-shade-color),
+    inset 0 -0.5rem 0 var(--nav-link-tint-color), 0.3rem 0 0 #333,
+    -0.3rem 0 0 #333, 0 0.3rem 0 #333, 0 -0.3rem 0 #333;
+
+  &:active {
+    //transform: translateY(0);
+
+    box-shadow: inset 0 -0.2rem 0 var(--nav-link-tint-color), 0.3rem 0 0 #333,
+      -0.3rem 0 0 #333, 0 0.3rem 0 #333, 0 -0.3rem 0 #333;
+  }
+
+  &__text {
+    top: -0.3rem;
+    position: relative;
+  }
+
+  &:active &__text {
+    top: 0rem;
+  }
+  //end test
+  // background-color: var(--font-color);
+  // color: var(--background-color);
+
+  // transform: translate(-0.3rem, -0.3rem);
+  // box-shadow: 0.3rem 0 0 var(--font-color), -0.3rem 0 0 var(--font-color),
+  //   0 0.3rem 0 var(--font-color), 0 -0.3rem 0 var(--font-color),
+  //   0.6rem 0.3rem 0 $primaryViolet, 0.3rem 0.6rem 0 $primaryViolet;
+  // &:active {
+  //   background-color: var(--font-color);
+  //   transform: translate(0, 0);
+  //   box-shadow: 0.3rem 0 0 var(--font-color), -0.3rem 0 0 var(--font-color),
+  //     0 0.3rem 0 var(--font-color), 0 -0.3rem 0 var(--font-color);
+  // }
+
+  @media only screen and (max-width: 27em) {
+    padding: 0.75rem 1rem;
+  }
+
+  @media only screen and (max-width: 24em) {
+    padding: 0.75rem;
+  }
+
+  @media only screen and (max-width: 24em) {
+    padding: 0.75rem;
+  }
+}

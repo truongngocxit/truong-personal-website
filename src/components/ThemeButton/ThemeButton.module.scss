@@ -1,0 +1,60 @@
+@use "../../sassStyles/variables" as *;
+
+.theme-container {
+  width: 6rem;
+  height: 3rem;
+  background-color: #ddd;
+  box-shadow: 0.3rem 0 0 var(--font-color), -0.3rem 0 0 var(--font-color),
+    0 0.3rem 0 var(--font-color), 0 -0.3rem 0 var(--font-color);
+  position: relative;
+
+  &--dark {
+    background-color: #ffcbf2;
+  }
+
+  &--light {
+    background-color: #fff6cc;
+  }
+}
+
+.theme-button {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  top: 0;
+  transform: scale(1.1);
+  background-color: #fff;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+
+  &--light {
+    left: 0%;
+    background-color: #ffdd00;
+    box-shadow: 0.3rem 0 0 var(--font-color), -0.3rem 0 0 var(--font-color),
+      0 0.3rem 0 var(--font-color), 0 -0.3rem 0 var(--font-color),
+      inset 0 -0.3rem 0 #fff2b2;
+  }
+
+  &--dark {
+    left: 50%;
+    background-color: #3a0ca3;
+    box-shadow: 0.3rem 0 0 var(--font-color), -0.3rem 0 0 var(--font-color),
+      0 0.3rem 0 var(--font-color), 0 -0.3rem 0 var(--font-color),
+      inset 0 -0.3rem 0 #560bad;
+  }
+}
+
+.icon {
+  position: relative;
+  top: -0.1rem;
+  &--sun {
+    color: #ff7b00;
+  }
+
+  &--moon {
+    color: #f72585;
+  }
+}

@@ -2,26 +2,33 @@
 
 .projects {
   border: var(--border);
-  //margin: 4rem 12rem;
+
   display: grid;
   grid-template-columns: 1fr 50%;
-  //box-shadow: 0.5rem 0.5rem 0 $primaryViolet;
   background-color: var(--background-color);
-  grid-template-rows: minmax(max-content, 55vh);
-  width: 75vw;
+  grid-auto-rows: minmax(30vh, max-content);
+  //grid-template-rows: minmax(max-content, 50vh);
+  min-width: 75vw;
+  @media only screen and (max-width: 48em) {
+    min-width: 90vw;
+  }
+
+  @media only screen and (max-width: 42em) {
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content 25rem;
+  }
+
+  @media only screen and (max-width: 24em) {
+    min-width: 95vw;
+  }
 
   &__loading-bar {
     grid-column: 1 / -1;
     place-self: center;
-  }
 
-  &__head {
-    padding: 2rem 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    grid-column: 1 / -1;
-    border-bottom: var(--border);
+    @media only screen and (max-width: 42em) {
+      grid-row: span 2;
+    }
   }
 
   &__nav {
@@ -31,22 +38,43 @@
 
   &__overview {
     border-right: var(--border);
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     flex-direction: column;
-    gap: 1.75rem;
-    padding: 4rem;
+    gap: 1.25rem;
+    padding: 2rem 4rem;
+    align-items: center;
+
+    &__name {
+      grid-column: 1 / -1;
+
+      @media only screen and (max-width: 48em) {
+        font-size: 2rem;
+      }
+
+      @media only screen and (max-width: 42em) {
+        font-size: 1.6rem;
+      }
+    }
 
     &__nav {
       display: flex;
       gap: 1.5rem;
+      grid-column: 1 / -1;
+      @media only screen and (max-width: 42em) {
+        grid-column: 2;
+        grid-row: 3 / 4;
+        justify-self: end;
+      }
 
       &-button {
         border: var(--border);
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 4rem;
-        height: 4rem;
+        width: 3.6rem;
+        height: 3.6rem;
+        padding: 0.5rem;
         transition: all 0.3s;
         color: var(--font-color);
 
@@ -76,9 +104,15 @@
     &__links {
       display: grid;
       grid-auto-flow: column;
-      grid-auto-columns: 16rem;
-      gap: 1.5rem;
-      padding-top: 2rem;
+      // grid-auto-columns: 16rem;
+      gap: 1rem;
+      padding-top: 1rem;
+      grid-column: 1 / -1;
+
+      @media only screen and (max-width: 42em) {
+        grid-column: 1;
+        padding-top: 0;
+      }
     }
 
     &__link {
@@ -111,6 +145,7 @@
   }
 
   &__info-list {
+    grid-column: 1 / -1;
     display: flex;
     flex-direction: column;
     gap: 1.2rem;

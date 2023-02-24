@@ -3,7 +3,6 @@
 .cv-view {
   border: var(--border);
   background-color: var(--background-color);
-  // box-shadow: 0.5rem 0.5rem 0 $primaryViolet;
   position: relative;
 
   &__header {
@@ -22,8 +21,18 @@
   }
 
   &__cv-container {
-    width: 64rem;
-    height: 48rem;
+    width: 70vw;
+    height: 60vh;
+
+    @media only screen and (max-width: 27em) {
+      width: 85vw;
+      height: 70vh;
+    }
+
+    @media only screen and (max-width: 20em) {
+      width: 90vw;
+      height: 70vh;
+    }
   }
 
   &__cv-content {

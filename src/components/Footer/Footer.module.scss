@@ -11,64 +11,19 @@
   align-items: center;
   background-color: var(--background-color);
 
-  &__copyright {
+  @media only screen and (max-width: 27em) {
+    padding: 1rem 4rem;
   }
 
-  &__theme-container {
-    width: 6rem;
-    height: 3rem;
-    background-color: #ddd;
-    box-shadow: 0.3rem 0 0 var(--font-color), -0.3rem 0 0 var(--font-color),
-      0 0.3rem 0 var(--font-color), 0 -0.3rem 0 var(--font-color);
-    position: relative;
-
-    &--dark {
-      background-color: #ffcbf2;
-    }
-
-    &--light {
-      background-color: #fff6cc;
-    }
+  @media only screen and (max-width: 24em) {
+    padding: 1rem 2rem;
   }
 
-  &__theme-button {
-    position: absolute;
-    left: 0;
-    height: 100%;
-    top: 0;
-    transform: scale(1.1);
-    background-color: #fff;
+  @media only screen and (max-width: 20em) {
+    padding: 1rem 0;
+  }
 
-    width: 50%;
-    display: flex;
-    align-items: center;
+  @media only screen and (max-width: 48em) {
     justify-content: center;
-    transition: all 0.3s;
-
-    &--light {
-      left: 0%;
-      background-color: #ffdd00;
-      box-shadow: 0.3rem 0 0 var(--font-color), -0.3rem 0 0 var(--font-color),
-        0 0.3rem 0 var(--font-color), 0 -0.3rem 0 var(--font-color),
-        inset -0.3rem 0 0 #fff2b2;
-    }
-
-    &--dark {
-      left: 50%;
-      background-color: #3a0ca3;
-      box-shadow: 0.3rem 0 0 var(--font-color), -0.3rem 0 0 var(--font-color),
-        0 0.3rem 0 var(--font-color), 0 -0.3rem 0 var(--font-color),
-        inset -0.3rem 0 0 #560bad;
-    }
-  }
-}
-
-.icon {
-  &--sun {
-    color: #ff7b00;
-  }
-
-  &--moon {
-    color: #f72585;
   }
 }

@@ -5,16 +5,10 @@ import GithubIcon from "../UI/SVG/GithubIcon";
 import InstagramIcon from "../UI/SVG/InstagramIcon";
 import FacebookIcon from "../UI/SVG/FacebookIcon";
 import LinkedinIcon from "../UI/SVG/LinkedinIcon";
-import MainLogo from "../UI/MainLogo/MainLogo";
-import CloseButton from "../CloseButton/CloseButton";
 
 const Contact = function ({ className = "", onClose }) {
   return (
     <footer className={`${css["contact"]} ${className}`}>
-      {/* <header className={css["contact__header"]}>
-        <h2>CONTACTS</h2>
-        <CloseButton onClose={onClose} />
-      </header> */}
       <div className={css["contact__contacts"]}>
         <h4 className={css["contact__contacts__heading"]}>
           {">"} CONTACT INFO
