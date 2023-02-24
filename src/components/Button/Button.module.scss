@@ -2,13 +2,14 @@
 
 .button {
   background: none;
-  border: $border;
+  border: var(--alternate-border);
   padding: 1.5rem 3rem;
   font-weight: 700;
-
+  color: #333;
   width: 100%;
   transition: all 0.3s;
   position: relative;
+  color: var(--font-color);
 
   &--primary {
     background-color: $primaryViolet;
@@ -30,7 +31,7 @@
 
   &:hover {
     transform: translate(-0.4rem, -0.4rem);
-    background-color: $primaryDark;
+    background-color: var(--font-color);
     z-index: 5;
   }
 }

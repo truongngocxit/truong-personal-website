@@ -46,19 +46,36 @@ const App = function () {
   const [topModal, setTopModal] = useState("");
 
   //SET PAGE HEIGHT
-
+  const resizeObserverRef = useRef(null);
   const [mainHeight, setMainHeight] = useState("auto");
 
   const topNavRef = useRef(null);
   const footerRef = useRef(null);
 
+  // useLayoutEffect(() => {
+  //   setMainHeight(
+  //     `calc(100vh - ${
+  //       topNavRef.current.getBoundingClientRect().height +
+  //       footerRef.current.getBoundingClientRect().height
+  //     }px)`
+  //   );
+  // }, []);
+
   useLayoutEffect(() => {
-    setMainHeight(
-      `calc(100vh - ${
-        topNavRef.current.getBoundingClientRect().height +
-        footerRef.current.getBoundingClientRect().height
-      }px)`
-    );
+    resizeObserverRef.current = new ResizeObserver(function (entries) {
+      entries.forEach(() => {
+        setMainHeight(
+          `calc(100vh - ${
+            topNavRef.current.getBoundingClientRect().height +
+            footerRef.current.getBoundingClientRect().height
+          }px)`
+        );
+      });
+    });
+
+    resizeObserverRef.current.observe(document.documentElement);
+
+    return () => resizeObserverRef.current.disconnect();
   }, []);
 
   return (
@@ -84,6 +101,7 @@ const App = function () {
           onClose={handleCloseCVModal}
           onClick={setTopModal.bind(null, "cv")}
           isOnTop={topModal === "cv"}
+          title="My CV"
         >
           <CVView />
         </Modal>
@@ -94,6 +112,7 @@ const App = function () {
           onClose={handleCloseContactModal}
           onClick={setTopModal.bind(null, "contact")}
           isOnTop={topModal === "contact"}
+          title="My contact details"
         >
           <Contact />
         </Modal>
@@ -104,6 +123,7 @@ const App = function () {
           onClose={handleCloseSkillModal}
           onClick={setTopModal.bind(null, "skills")}
           isOnTop={topModal === "skills"}
+          title="My skills"
         >
           <Skills />
         </Modal>
@@ -114,6 +134,7 @@ const App = function () {
           onClose={handleCloseProjectModal}
           onClick={setTopModal.bind(null, "projects")}
           isOnTop={topModal === "projects"}
+          title="my projects"
         >
           <Projects />
         </Modal>

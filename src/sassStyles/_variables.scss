@@ -18,4 +18,5 @@ $secondaryBlue2: #4361ee;
 $secondaryBlue3: #3f37c9;
 
 //border
-$border: 0.325rem solid $primaryDark;
+//$border: 0.325rem solid var(--border-color);
+$border: var(--border);

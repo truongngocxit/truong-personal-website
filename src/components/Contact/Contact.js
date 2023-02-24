@@ -11,10 +11,10 @@ import CloseButton from "../CloseButton/CloseButton";
 const Contact = function ({ className = "", onClose }) {
   return (
     <footer className={`${css["contact"]} ${className}`}>
-      <header className={css["contact__header"]}>
+      {/* <header className={css["contact__header"]}>
         <h2>CONTACTS</h2>
         <CloseButton onClose={onClose} />
-      </header>
+      </header> */}
       <div className={css["contact__contacts"]}>
         <h4 className={css["contact__contacts__heading"]}>
           {">"} CONTACT INFO
@@ -51,10 +51,10 @@ const Contact = function ({ className = "", onClose }) {
           </li>
         </ul>
       </div>
-      <div className={css["contact__foot"]}>
+      {/* <div className={css["contact__foot"]}>
         <MainLogo isHorizontal={true} />
         <p>© 2023 by Truong Nguyen</p>
-      </div>
+      </div> */}
     </footer>
   );
 };

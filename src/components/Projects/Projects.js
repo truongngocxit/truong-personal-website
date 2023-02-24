@@ -47,26 +47,6 @@ const Projects = function ({ className = "", onClose }) {
 
   return (
     <div className={`${css["projects"]} ${className}`}>
-      <div className={css["projects__head"]}>
-        <h2 className={css["projects__heading"]}>MY PROJECTS</h2>
-        <div className={css["projects__nav"]}>
-          <button
-            className={css["projects__nav-button"]}
-            onClick={handleDecreaseProjectIndex}
-            disabled={!data || projectIndex === 0}
-          >
-            <ChevronLeft />
-          </button>
-          <button
-            className={css["projects__nav-button"]}
-            onClick={handleIncreaseProjectIndex}
-            disabled={!data || (images && projectIndex === images.length - 1)}
-          >
-            <ChevronRight />
-          </button>
-          <CloseButton onClose={onClose} />
-        </div>
-      </div>
       {isLoading && (
         <div className={css["projects__loading-bar"]}>
           <LoadingBar />
@@ -75,6 +55,24 @@ const Projects = function ({ className = "", onClose }) {
       {!isLoading && data !== null && (
         <>
           <main className={css["projects__overview"]}>
+            <div className={css["projects__overview__nav"]}>
+              <button
+                className={css["projects__overview__nav-button"]}
+                onClick={handleDecreaseProjectIndex}
+                disabled={!data || projectIndex === 0}
+              >
+                <ChevronLeft />
+              </button>
+              <button
+                className={css["projects__overview__nav-button"]}
+                onClick={handleIncreaseProjectIndex}
+                disabled={
+                  !data || (images && projectIndex === images.length - 1)
+                }
+              >
+                <ChevronRight />
+              </button>
+            </div>
             <h3>{data[projectIndex].title}</h3>
             <ul className={css["projects__info-list"]}>
               <li className={css["projects__info-item"]}>

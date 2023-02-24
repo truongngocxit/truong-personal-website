@@ -10,10 +10,10 @@ const CVView = function ({ onClose }) {
 
   return (
     <div className={css["cv-view"]}>
-      <div className={css["cv-view__header"]}>
+      {/* <div className={css["cv-view__header"]}>
         <h3>MY CV</h3>
         <CloseButton onClose={onClose} />
-      </div>
+      </div> */}
       <div className={css["cv-view__cv-container"]}>
         <iframe
           className={css["cv-view__cv-content"]}

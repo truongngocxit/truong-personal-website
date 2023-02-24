@@ -6,7 +6,21 @@
   transform: translate(-50%, -50%);
   z-index: 1000;
 
-  &:active {
+  display: grid;
+  grid-template-rows: max-content auto;
+
+  &__nav {
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    border: var(--border);
+    border-bottom: none;
+    align-items: center;
     cursor: grab;
+
+    &:active {
+      cursor: grabbing;
+    }
   }
 }

@@ -19,7 +19,7 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
     transition: all 0.3s;
-    box-shadow: 0 0 0 0.3rem $primaryDark;
+    box-shadow: 0 0 0 0.3rem var(--font-color);
 
     &::-webkit-scrollbar {
       display: none;
@@ -42,7 +42,7 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: $primaryDark;
+    background-color: var(--font-color);
   }
 
   &__dots {

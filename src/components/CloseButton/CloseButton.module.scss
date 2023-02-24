@@ -1,21 +1,21 @@
 @use "../../sassStyles/variables" as *;
 
 .close-button {
-  border: $border;
+  border: var(--border);
   display: flex;
   align-items: center;
   justify-content: center;
   width: 4rem;
   height: 4rem;
   transition: all 0.3s;
-  color: #fff;
-  background-color: $primaryDark;
+  color: var(--font-color);
+  background-color: var(--background-color);
 
   &:hover {
     transform: translate(-0.4rem, -0.4rem);
     box-shadow: 0.4rem 0.4rem 0 0 $primaryViolet;
-    background-color: $primaryDark;
-    color: #fff;
+    background-color: var(--background-color);
+    color: var(--font-color);
   }
 
   &:active {

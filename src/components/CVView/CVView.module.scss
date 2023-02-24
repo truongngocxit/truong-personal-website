@@ -1,9 +1,9 @@
 @use "../../sassStyles/variables" as *;
 
 .cv-view {
-  border: $border;
-  background-color: #fff;
-  box-shadow: 0.5rem 0.5rem 0 $primaryViolet;
+  border: var(--border);
+  background-color: var(--background-color);
+  // box-shadow: 0.5rem 0.5rem 0 $primaryViolet;
   position: relative;
 
   &__header {
@@ -11,7 +11,7 @@
     padding: 1rem 2rem;
     align-items: center;
     justify-content: space-between;
-    border-bottom: $border;
+    border-bottom: var(--border);
   }
 
   &__loading-bar {

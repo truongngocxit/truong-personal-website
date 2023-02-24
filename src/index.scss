@@ -1,6 +1,24 @@
 @use "./sassStyles/variables" as *;
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Press+Start+2P&display=swap");
 
+:root {
+  --font-color: #333;
+  --disabled-color: rgba(51, 51, 51, 0.5);
+  --background-color: #fff;
+  --border: 0.3rem solid var(--font-color);
+  --alternate-border: 0.3rem solid var(--font-color);
+  --alternate-background-color: #ccc;
+}
+
+[data-theme="dark"] {
+  --font-color: #eee;
+  --disabled-color: rgba(237, 237, 237, 0.5);
+  --background-color: #333;
+  --border: 0.3rem solid var(--font-color);
+  --alternate-border: 0.3rem solid transparent;
+  --alternate-background-color: #999;
+}
+
 *,
 *::before,
 *::after {
@@ -11,11 +29,31 @@
 
 html {
   font-size: 62.5%;
+
+  //screen larger then 1600
+  @media only screen and (min-width: 100em) {
+    font-size: 75%;
+  }
+
+  //smaller than 1200
+  @media only screen and (max-width: 75em) {
+    font-size: 56.25%;
+  }
+
+  //smaller than 1024
+  @media only screen and (max-width: 64em) {
+    font-size: 50%;
+  }
+
+  //smaller than 944
+  @media only screen and (max-width: 59em) {
+    //font-size: 43.75%;
+  }
 }
 
 body {
   font-family: "IBM Plex Mono", monospace;
-  color: #333;
+  color: var(--font-color);
   font-size: 1.6rem;
   &::-webkit-scrollbar {
     background: #fff;
@@ -55,7 +93,7 @@ h4 {
 svg {
   width: 2rem;
   height: 2rem;
-  stroke: #333;
+  stroke: var(--font-color);
   display: block;
 }
 

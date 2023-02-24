@@ -9,6 +9,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: var(--background-color);
 
   &__copyright {
   }
@@ -17,9 +18,17 @@
     width: 6rem;
     height: 3rem;
     background-color: #ddd;
-    box-shadow: 0.3rem 0 0 $primaryDark, -0.3rem 0 0 $primaryDark,
-      0 0.3rem 0 $primaryDark, 0 -0.3rem 0 $primaryDark;
+    box-shadow: 0.3rem 0 0 var(--font-color), -0.3rem 0 0 var(--font-color),
+      0 0.3rem 0 var(--font-color), 0 -0.3rem 0 var(--font-color);
     position: relative;
+
+    &--dark {
+      background-color: #ffcbf2;
+    }
+
+    &--light {
+      background-color: #fff6cc;
+    }
   }
 
   &__theme-button {
@@ -39,16 +48,16 @@
     &--light {
       left: 0%;
       background-color: #ffdd00;
-      box-shadow: 0.3rem 0 0 $primaryDark, -0.3rem 0 0 $primaryDark,
-        0 0.3rem 0 $primaryDark, 0 -0.3rem 0 $primaryDark,
+      box-shadow: 0.3rem 0 0 var(--font-color), -0.3rem 0 0 var(--font-color),
+        0 0.3rem 0 var(--font-color), 0 -0.3rem 0 var(--font-color),
         inset -0.3rem 0 0 #fff2b2;
     }
 
     &--dark {
       left: 50%;
       background-color: #3a0ca3;
-      box-shadow: 0.3rem 0 0 $primaryDark, -0.3rem 0 0 $primaryDark,
-        0 0.3rem 0 $primaryDark, 0 -0.3rem 0 $primaryDark,
+      box-shadow: 0.3rem 0 0 var(--font-color), -0.3rem 0 0 var(--font-color),
+        0 0.3rem 0 var(--font-color), 0 -0.3rem 0 var(--font-color),
         inset -0.3rem 0 0 #560bad;
     }
   }

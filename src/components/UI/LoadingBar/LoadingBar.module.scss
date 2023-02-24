@@ -3,9 +3,9 @@
 .loading-bar {
   width: 12rem;
   height: 2.5rem;
-  background-color: #fff;
-  box-shadow: 0.3rem 0 $primaryDark, -0.3rem 0 $primaryDark,
-    0 0.3rem 0 $primaryDark, 0 -0.3rem 0 $primaryDark;
+  background-color: var(--background-color);
+  box-shadow: 0.3rem 0 var(--font-color), -0.3rem 0 var(--font-color),
+    0 0.3rem 0 var(--font-color), 0 -0.3rem 0 var(--font-color);
   position: relative;
   overflow: hidden;
 

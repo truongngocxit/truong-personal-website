@@ -1,13 +1,13 @@
 @use "../../sassStyles/variables" as *;
 
 .projects {
-  border: $border;
+  border: var(--border);
   //margin: 4rem 12rem;
   display: grid;
   grid-template-columns: 1fr 50%;
-  box-shadow: 0.5rem 0.5rem 0 $primaryViolet;
-  background-color: #fff;
-  grid-template-rows: max-content 50vh;
+  //box-shadow: 0.5rem 0.5rem 0 $primaryViolet;
+  background-color: var(--background-color);
+  grid-template-rows: minmax(max-content, 55vh);
   width: 75vw;
 
   &__loading-bar {
@@ -21,52 +21,57 @@
     align-items: center;
     justify-content: space-between;
     grid-column: 1 / -1;
-    border-bottom: $border;
+    border-bottom: var(--border);
   }
 
   &__nav {
     display: flex;
     gap: 1.5rem;
-
-    &-button {
-      border: $border;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 4rem;
-      height: 4rem;
-      transition: all 0.3s;
-      color: $primaryDark;
-
-      &:hover {
-        transform: translate(-0.4rem, -0.4rem);
-        box-shadow: 0.4rem 0.4rem 0 0 $primaryViolet;
-        background-color: $primaryDark;
-        color: #fff;
-      }
-
-      &:active {
-        transform: translate(0, 0);
-        box-shadow: none;
-      }
-
-      &:disabled {
-        border: 0.3rem solid rgba(51, 51, 51, 0.5);
-        color: rgba(51, 51, 51, 0.5);
-        cursor: not-allowed;
-        transform: translate(0, 0);
-        box-shadow: none;
-        background-color: #fff;
-      }
-    }
   }
 
   &__overview {
-    border-right: $border;
+    border-right: var(--border);
     display: flex;
     flex-direction: column;
     gap: 1.75rem;
     padding: 4rem;
+
+    &__nav {
+      display: flex;
+      gap: 1.5rem;
+
+      &-button {
+        border: var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 4rem;
+        height: 4rem;
+        transition: all 0.3s;
+        color: var(--font-color);
+
+        &:hover {
+          transform: translate(-0.4rem, -0.4rem);
+          box-shadow: 0.4rem 0.4rem 0 0 $primaryViolet;
+          background-color: var(--font-color);
+          color: var(--background-color);
+        }
+
+        &:active {
+          transform: translate(0, 0);
+          box-shadow: none;
+        }
+
+        &:disabled {
+          border: 0.3rem solid var(--disabled-color);
+          color: var(--disabled-color);
+          cursor: not-allowed;
+          transform: translate(0, 0);
+          box-shadow: none;
+          background-color: var(--background-color);
+        }
+      }
+    }
 
     &__links {
       display: grid;
@@ -79,7 +84,7 @@
     &__link {
       padding: 1rem;
       font-weight: 700;
-      border: $border;
+      border: var(--border);
       display: flex;
       align-items: center;
       gap: 1.5rem;
@@ -88,8 +93,8 @@
       cursor: pointer;
 
       &--prod {
-        background-color: $primaryDark;
-        color: #fff;
+        background-color: var(--font-color);
+        color: var(--background-color);
         &:hover {
           transform: translate(-0.4rem, -0.4rem);
           box-shadow: 0.4rem 0.4rem 0 $primaryViolet;

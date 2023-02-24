@@ -50,51 +50,50 @@ const Skills = function ({ className = "", onClose }) {
 
   return (
     <div className={`${css["skills"]} ${className}`}>
-      <div className={css["skills__heading"]}>
+      {/* <div className={css["skills__heading"]}>
         <h2>MY SKILLS</h2>
         <CloseButton onClose={onClose} />
+      </div> */}
+
+      <div className={css["skills__nav"]}>
+        <button
+          className={`${css["skills__nav-button"]} ${
+            activeTab === "front-end" ? css["skills__nav-button--active"] : ""
+          }`}
+          onClick={handleChangeActiveTab.bind("front-end")}
+        >
+          FRONT-END
+        </button>
+        <button
+          className={`${css["skills__nav-button"]} ${
+            activeTab === "back-end" ? css["skills__nav-button--active"] : ""
+          }`}
+          onClick={handleChangeActiveTab.bind("back-end")}
+        >
+          BACK-END
+        </button>
+        <button
+          className={`${css["skills__nav-button"]} ${
+            activeTab === "design" ? css["skills__nav-button--active"] : ""
+          }`}
+          onClick={handleChangeActiveTab.bind("design")}
+        >
+          DESIGN
+        </button>
       </div>
-      <div className={css["skills__section"]}>
-        <div className={css["skills__nav"]}>
-          <button
-            className={`${css["skills__nav-button"]} ${
-              activeTab === "front-end" ? css["skills__nav-button--active"] : ""
-            }`}
-            onClick={handleChangeActiveTab.bind("front-end")}
-          >
-            FRONT-END
-          </button>
-          <button
-            className={`${css["skills__nav-button"]} ${
-              activeTab === "back-end" ? css["skills__nav-button--active"] : ""
-            }`}
-            onClick={handleChangeActiveTab.bind("back-end")}
-          >
-            BACK-END
-          </button>
-          <button
-            className={`${css["skills__nav-button"]} ${
-              activeTab === "design" ? css["skills__nav-button--active"] : ""
-            }`}
-            onClick={handleChangeActiveTab.bind("design")}
-          >
-            DESIGN
-          </button>
-        </div>
-        <div className={css["skills__content"]}>
-          {isLoading && <LoadingBar />}
-          {!isLoading &&
-            skillsData !== null &&
-            skillsData[activeTab].map((skill) => (
-              <SkillItem
-                key={skill.id}
-                label={skill.label}
-                percent={skill.experience}
-              >
-                {skill.icon}
-              </SkillItem>
-            ))}
-        </div>
+      <div className={css["skills__content"]}>
+        {isLoading && <LoadingBar />}
+        {!isLoading &&
+          skillsData !== null &&
+          skillsData[activeTab].map((skill) => (
+            <SkillItem
+              key={skill.id}
+              label={skill.label}
+              percent={skill.experience}
+            >
+              {skill.icon}
+            </SkillItem>
+          ))}
       </div>
     </div>
   );

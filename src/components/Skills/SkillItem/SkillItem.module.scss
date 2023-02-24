@@ -10,8 +10,8 @@
     width: auto;
     height: 5rem;
     overflow: visible;
-    stroke: $primaryDark !important;
-    stroke-width: 0.2rem;
+    stroke: var(--font-color) !important;
+    stroke-width: 0.1rem;
   }
 
   &__label {

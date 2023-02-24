@@ -1,7 +1,15 @@
 import css from "./Modal.module.scss";
+import ToolTip from "../Tooltip/ToolTip";
 import { useState, cloneElement, useRef } from "react";
+import CloseButton from "../CloseButton/CloseButton";
 
-const Modal = function ({ children, onClose, isOnTop = false, onClick }) {
+const Modal = function ({
+  children,
+  onClose,
+  isOnTop = false,
+  onClick,
+  title,
+}) {
   const [isGrabbing, setIsGrabbing] = useState(false);
 
   const modalRef = useRef(null);
@@ -82,12 +90,21 @@ const Modal = function ({ children, onClose, isOnTop = false, onClick }) {
           top: modalY,
           zIndex: isOnTop ? 50 : 20,
         }}
-        onPointerDown={handleCursorDown}
-        onPointerMove={handleCursorMove}
-        onPointerUp={handleCursorUp}
       >
+        <ToolTip position="top" message="Hold to drag">
+          <div
+            className={css["modal__nav"]}
+            onPointerDown={handleCursorDown}
+            onPointerMove={handleCursorMove}
+            onPointerUp={handleCursorUp}
+          >
+            <h3>{title.toUpperCase()}</h3>
+            <CloseButton onClose={onClose} />
+          </div>
+        </ToolTip>
         {cloneElement(children, { onClose })}
       </div>
+
       {/* {createPortal(
         <Overlay onClose={onClose} />,
         document.getElementById("modal-root")

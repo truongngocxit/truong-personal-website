@@ -4,7 +4,7 @@ import ExpandIcon from "../../UI/SVG/ExpandIcon";
 import CollapseIcon from "../../UI/SVG/CollapseIcon";
 import ToolTip from "../../Tooltip/ToolTip";
 
-const Avatar = function ({ className }) {
+const Avatar = function ({ className = "" }) {
   const [avatarIsShown, setAvatarIsShown] = useState(true);
   const handleToggleAvatarState = function () {
     setAvatarIsShown((state) => !state);

@@ -1,18 +1,28 @@
 import css from "./Footer.module.scss";
-import { forwardRef } from "react";
 import SunIcon from "../UI/SVG/SunIcon";
 import MoonIcon from "../UI/SVG/MoonIcon";
-import { useState } from "react";
+import { useState, forwardRef, useEffect } from "react";
 
 const Footer = function (_, ref) {
   const [isDark, setIsDark] = useState(false);
   const handleToggleTheme = function () {
     setIsDark((theme) => !theme);
+    document.documentElement.setAttribute(
+      "data-theme",
+      isDark ? "light" : "dark"
+    );
   };
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", "light");
+  }, []);
   return (
     <footer className={css["footer"]} ref={ref}>
       <button
-        className={css["footer__theme-container"]}
+        className={`${css["footer__theme-container"]} ${
+          isDark
+            ? css["footer__theme-container--dark"]
+            : css["footer__theme-container--light"]
+        }`}
         onClick={handleToggleTheme}
       >
         <div
