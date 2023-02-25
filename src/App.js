@@ -7,7 +7,6 @@ import Footer from "./components/Footer/Footer";
 import css from "./App.module.scss";
 import Modal from "./components/Modal/Modal";
 import CVView from "./components/CVView/CVView";
-import About from "./components/About/About";
 import { useReducer, useRef, useLayoutEffect, useState } from "react";
 
 const App = function () {

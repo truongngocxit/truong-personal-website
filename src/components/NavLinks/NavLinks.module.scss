@@ -19,7 +19,7 @@
 }
 
 .nav-link {
-  padding: 0.8rem 2rem 0.8rem 2rem;
+  padding: 1rem 2rem 1rem 2rem;
   display: block;
   font-weight: 700;
   transition: 0.1s all;
@@ -36,6 +36,10 @@
     inset 0 -0.5rem 0 var(--nav-link-tint-color), 0.3rem 0 0 #333,
     -0.3rem 0 0 #333, 0 0.3rem 0 #333, 0 -0.3rem 0 #333;
 
+  &:hover {
+    background-color: #44b5d8;
+  }
+
   &:active {
     //transform: translateY(0);
 
@@ -48,13 +52,13 @@
     display: block;
     background-color: #dbf4fc;
     position: absolute;
-    width: 4rem;
+    width: 5rem;
     height: 100%;
     top: 0;
     left: 0;
     clip-path: polygon(0% 0%, 50% 0%, 100% 100%, 50% 100%);
     opacity: 0.2;
-    animation: glittering 1s ease-in infinite;
+    animation: glittering 1s ease-in-out infinite;
   }
 
   &__text {

@@ -14,7 +14,7 @@ const Footer = function (
         <>
           <ThemeButton />
           <span className={css["footer__copyright"]}>
-            © 2023 by Truong Nguyen
+            © {new Date().getFullYear()} by Truong Nguyen
           </span>
         </>
       )}

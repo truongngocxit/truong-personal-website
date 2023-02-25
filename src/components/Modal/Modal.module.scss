@@ -11,7 +11,9 @@
   grid-auto-columns: auto;
 
   &__nav {
-    background-color: var(--background-color);
+    // background-color: var(--background-color);
+    background-color: rgb(247, 37, 133, 0.7);
+    backdrop-filter: blur(1rem);
     display: flex;
     justify-content: space-between;
     align-items: center;

@@ -1,6 +1,6 @@
 import css from "./Modal.module.scss";
 import ToolTip from "../Tooltip/ToolTip";
-import { useState, cloneElement, useRef } from "react";
+import { useState, cloneElement, useRef, useEffect } from "react";
 import CloseButton from "../CloseButton/CloseButton";
 
 const Modal = function ({
@@ -79,6 +79,14 @@ const Modal = function ({
     setIsGrabbing(false);
   };
 
+  const [showTooltip, setShowTooltip] = useState(true);
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => setShowTooltip(false), 2000);
+
+    return () => clearTimeout(timeoutId);
+  }, []);
+
   return (
     <>
       <div
@@ -91,7 +99,7 @@ const Modal = function ({
           zIndex: isOnTop ? 50 : 20,
         }}
       >
-        <ToolTip position="top" message="Hold to drag">
+        <ToolTip position="top" message="Hold to drag" isOpen={showTooltip}>
           <div
             className={css["modal__nav"]}
             onPointerDown={handleCursorDown}

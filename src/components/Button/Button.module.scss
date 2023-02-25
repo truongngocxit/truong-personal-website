@@ -25,6 +25,10 @@
     color: #630f35;
     box-shadow: inset 0 -0.5rem 0 #ad1a5d, inset 0 -0.7rem 0 #fdd3e7,
       0.3rem 0 0 #333, -0.3rem 0 0 #333, 0 0.3rem 0 #333, 0 -0.3rem 0 #333;
+
+    &:hover {
+      background-color: #de2178;
+    }
   }
 
   &--secondary {
@@ -33,6 +37,10 @@
     box-shadow: inset 0 -0.5rem 0 var(--nav-link-shade-color),
       inset 0 -0.7rem 0 var(--nav-link-tint-color), 0.3rem 0 0 #333,
       -0.3rem 0 0 #333, 0 0.3rem 0 #333, 0 -0.3rem 0 #333;
+
+    &:hover {
+      background-color: #44b5d8;
+    }
   }
 
   &:active {

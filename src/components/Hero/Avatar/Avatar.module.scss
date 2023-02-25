@@ -48,11 +48,6 @@
     animation: shadowing 1s infinite alternate both ease;
   }
 
-  &__nav,
-  &__image {
-    // animation: hovering 1s infinite alternate both ease;
-  }
-
   &__nav {
     display: grid;
     grid-template-columns: 1fr 3.6rem;

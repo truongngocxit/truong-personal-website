@@ -5,7 +5,7 @@ const ToolTip = function ({
   message = "I am a tooltip",
   position = "bottom",
   children,
-  isOpen = false,
+  isOpen,
 }) {
   const [isHovered, setIsHoverd] = useState(false);
 
@@ -25,7 +25,7 @@ const ToolTip = function ({
       onMouseOver={handleHoverElement}
       onMouseLeave={handleUnhoverElement}
     >
-      {isHovered && (
+      {(isOpen === undefined ? isHovered : isOpen) && (
         <div
           className={`${css["tooltip"]} ${
             position === "top" ? css["tooltip--top"] : css["tooltip--bottom"]

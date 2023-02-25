@@ -26,11 +26,6 @@ const Projects = function ({ className = "", onClose }) {
     Object.entries(rawData).map((e) => ({ id: e[0], ...e[1] }))
   );
 
-  console.log(data);
-  // if (data) {
-  //   cleansedData = Object.entries(data).map((e) => ({ id: e[0], ...e[1] }));
-  // }
-
   let images;
   if (data) {
     images = Object.entries(data[projectIndex].images).reduce(
@@ -44,6 +39,8 @@ const Projects = function ({ className = "", onClose }) {
       []
     );
   }
+
+  console.log(data);
 
   return (
     <div className={`${css["projects"]} ${className}`}>
@@ -102,12 +99,18 @@ const Projects = function ({ className = "", onClose }) {
             <div className={css["projects__overview__links"]}>
               <a
                 className={`${css["projects__overview__link"]} ${css["projects__overview__link--prod"]}`}
+                href={data[projectIndex].prod}
+                target="_blank"
+                rel="noreferrer"
               >
                 <span>PROD.</span>
                 <ExternalLinkIcon />
               </a>
               <a
                 className={`${css["projects__overview__link"]} ${css["projects__overview__link--code"]}`}
+                href={data[projectIndex].code}
+                target="_blank"
+                rel="noreferrer"
               >
                 <span>CODE</span>
                 <ExternalLinkIcon />
