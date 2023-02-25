@@ -8,7 +8,7 @@ const Button = function ({ onClick, className, children, isPrimary = true }) {
       } ${className}`}
       onClick={onClick}
     >
-      {children}
+      <span className={css["button__text"]}>{children}</span>
     </button>
   );
 };

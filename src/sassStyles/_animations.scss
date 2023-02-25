@@ -39,3 +39,13 @@
     opacity: 1;
   }
 }
+
+@keyframes glittering {
+  0% {
+    left: -50%;
+  }
+
+  100% {
+    left: 150%;
+  }
+}

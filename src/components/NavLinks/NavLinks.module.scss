@@ -1,4 +1,5 @@
 @use "../../sassStyles/variables" as *;
+@use "../../sassStyles/animations" as *;
 
 .nav-links {
   display: flex;
@@ -25,6 +26,8 @@
   cursor: pointer;
   white-space: nowrap;
   user-select: none;
+  position: relative;
+  overflow: hidden;
   //Test
   background-color: var(--nav-link-background-color);
   color: #266578;
@@ -38,6 +41,20 @@
 
     box-shadow: inset 0 -0.2rem 0 var(--nav-link-tint-color), 0.3rem 0 0 #333,
       -0.3rem 0 0 #333, 0 0.3rem 0 #333, 0 -0.3rem 0 #333;
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    background-color: #dbf4fc;
+    position: absolute;
+    width: 4rem;
+    height: 100%;
+    top: 0;
+    left: 0;
+    clip-path: polygon(0% 0%, 50% 0%, 100% 100%, 50% 100%);
+    opacity: 0.2;
+    animation: glittering 1s ease-in infinite;
   }
 
   &__text {
