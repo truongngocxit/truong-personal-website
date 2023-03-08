@@ -6,7 +6,7 @@ import InstagramIcon from "../UI/SVG/InstagramIcon";
 import FacebookIcon from "../UI/SVG/FacebookIcon";
 import LinkedinIcon from "../UI/SVG/LinkedinIcon";
 
-const Contact = function ({ className = "", onClose }) {
+const Contact = function ({ className = "" }) {
   return (
     <footer className={`${css["contact"]} ${className}`}>
       <div className={css["contact__contacts"]}>
@@ -27,41 +27,46 @@ const Contact = function ({ className = "", onClose }) {
       <div className={css["contact__channels"]}>
         <h4 className={css["contact__channels__heading"]}>{">"} MY CHANNELS</h4>
         <ul className={css["contact__channels__list"]}>
-          <a
-            href="https://github.com/truongngocxit"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <li className={css["contact__channels__item"]}>
+          <li>
+            <a
+              href="https://github.com/truongngocxit"
+              target="_blank"
+              rel="noreferrer"
+              className={css["contact__channels__item"]}
+            >
               <GithubIcon className={css["contact__channels__item-icon"]} />
               <span>GitHub</span>
-            </li>
-          </a>
-          <li className={css["contact__channels__item"]}>
+            </a>
+          </li>
+
+          <li>
             <a
               href="https://www.linkedin.com/in/truongnguyen1997/"
               target="_blank"
               rel="noreferrer"
+              className={css["contact__channels__item"]}
             >
               <LinkedinIcon className={css["contact__channels__item-icon"]} />
               <span>LinkedIn</span>
             </a>
           </li>
-          <li className={css["contact__channels__item"]}>
+          <li>
             <a
               href="https://www.facebook.com/ng.phu.truong/"
               target="_blank"
               rel="noreferrer"
+              className={css["contact__channels__item"]}
             >
               <FacebookIcon className={css["contact__channels__item-icon"]} />
               <span>Facebook</span>
             </a>
           </li>
-          <li className={css["contact__channels__item"]}>
+          <li>
             <a
               href="https://www.instagram.com/truong.nguyen.7797"
               target="_blank"
               rel="noreferrer"
+              className={css["contact__channels__item"]}
             >
               <InstagramIcon className={css["contact__channels__item-icon"]} />
               <span>Instagram</span>
@@ -69,10 +74,6 @@ const Contact = function ({ className = "", onClose }) {
           </li>
         </ul>
       </div>
-      {/* <div className={css["contact__foot"]}>
-        <MainLogo isHorizontal={true} />
-        <p>© 2023 by Truong Nguyen</p>
-      </div> */}
     </footer>
   );
 };

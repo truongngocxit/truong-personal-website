@@ -10,7 +10,6 @@ import NodeIcon from "../UI/SVG/NodeIcon";
 import FirebaseIcon from "../UI/SVG/FirebaseIcon";
 import FigmaIcon from "../UI/SVG/FigmaIcon";
 import IllustratorIcon from "../UI/SVG/IllustratorIcon";
-import CloseButton from "../CloseButton/CloseButton";
 import { useEffect, useState } from "react";
 import LoadingBar from "../UI/LoadingBar/LoadingBar";
 import promisifiedTimeout from "../../utils/promisifiedTimeout";

@@ -5,40 +5,60 @@
   width: 100%;
   height: 100%;
 
+  &__outer-container {
+    width: calc(100% - 2.5rem);
+    height: calc(100% - 2.5rem);
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    display: grid;
+    grid-template-rows: auto 90%;
+    border: $border;
+    transition: transform 0.3s;
+
+    &--popout {
+      transform: translate(-50%, -50%) scale(1.5);
+    }
+  }
+
+  &__title {
+    position: relative;
+    background-color: #fff;
+    z-index: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    border-bottom: $border;
+  }
+
   &__imgs {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%);
     width: 100%;
     height: 100%;
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: 100%;
-    grid-auto-rows: 100%;
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
     -ms-overflow-style: none;
     scrollbar-width: none;
     transition: all 0.3s;
-    box-shadow: 0 0 0 0.3rem var(--font-color);
+    // box-shadow: 0 0 0 0.3rem #333;
 
     &::-webkit-scrollbar {
       display: none;
     }
-
-    &--popout {
-      transform: translate(-50%, -50%) scale(1.3);
-    }
-  }
-
-  &:hover {
   }
 
   &__img {
     scroll-snap-align: center;
     width: 100%;
-    height: 100%;
+    min-height: 100%;
     display: block;
     object-fit: cover;
     margin: 0;
@@ -50,7 +70,7 @@
   &__dots {
     position: absolute;
     left: 50%;
-    bottom: 2rem;
+    bottom: 3rem;
     transform: translateX(-50%);
     display: flex;
     gap: 1rem;

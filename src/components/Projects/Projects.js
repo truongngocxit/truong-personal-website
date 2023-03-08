@@ -6,7 +6,6 @@ import PreviewImages from "./PreviewImages/PreviewImages";
 import DatabaseIcon from "../UI/SVG/DatabaseIcon";
 import BackendIcon from "../UI/SVG/BackendIcon";
 import FrontendIcon from "../UI/SVG/FrondendIcon";
-import CloseButton from "../CloseButton/CloseButton";
 import useFetchData from "../../custom-hooks/useFetchData";
 import LoadingBar from "../UI/LoadingBar/LoadingBar";
 import { useState } from "react";

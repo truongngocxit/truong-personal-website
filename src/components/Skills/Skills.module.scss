@@ -4,11 +4,10 @@
   display: grid;
   grid-auto-flow: row;
   background-color: var(--background-color);
-  border: var(--border);
+
   border-top: none;
-  // box-shadow: 0 -0.6rem 0 -0.3rem var(--background-color);
   width: max-content;
-  background-color: rgb(247, 37, 133, 0.7);
+  background-color: $primaryBlue;
   backdrop-filter: blur(1rem);
 }
 

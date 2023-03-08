@@ -9,8 +9,8 @@ export default function DatabaseIcon({ className }) {
       className={className}
     >
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M3 3H21V21H3V3ZM5 5V11H19V5H5ZM19 13H5V19H19V13ZM7 7H9V9H7V7ZM9 15H7V17H9V15Z"
         fill="currentColor"
       />

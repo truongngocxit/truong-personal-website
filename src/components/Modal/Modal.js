@@ -26,6 +26,7 @@ const Modal = function ({
   });
 
   const handleCursorDown = function (event) {
+    event.target.setPointerCapture(event.pointerId);
     setIsGrabbing(true);
     setCursorCoords({
       cursorX: event.clientX,
@@ -82,7 +83,7 @@ const Modal = function ({
   const [showTooltip, setShowTooltip] = useState(true);
 
   useEffect(() => {
-    const timeoutId = setTimeout(() => setShowTooltip(false), 2000);
+    const timeoutId = setTimeout(() => setShowTooltip(false), 1000);
 
     return () => clearTimeout(timeoutId);
   }, []);

@@ -203,34 +203,3 @@ const modalReducer = function (state, action) {
       return { ...state };
   }
 };
-
-const stackingInitialState = {
-  projectsTop: false,
-  contactsTop: false,
-  skillsTop: false,
-};
-
-const stackingReducer = function (state, action) {
-  switch (action) {
-    case "PROJECTS_TOP":
-      return {
-        projectsTop: true,
-        contactsTop: false,
-        skillsTop: false,
-      };
-    case "SKILLS_TOP":
-      return {
-        projectsTop: false,
-        contactsTop: false,
-        skillsTop: true,
-      };
-    case "CONTACTS_TOP":
-      return {
-        projectsTop: false,
-        contactsTop: true,
-        skillsTop: false,
-      };
-    default:
-      return { ...state };
-  }
-};

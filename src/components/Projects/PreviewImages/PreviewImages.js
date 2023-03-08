@@ -55,25 +55,28 @@ const PreviewImages = function ({ className, images }) {
       onMouseLeave={handleUnhoverPreview}
     >
       <div
-        className={`${css["preview-images__imgs"]} ${
-          previewIsHovered ? css["preview-images__imgs--popout"] : ""
+        className={`${css["preview-images__outer-container"]} ${
+          previewIsHovered ? css["preview-images__outer-container--popout"] : ""
         }`}
       >
-        {images.map((img) => (
-          <img
-            key={img}
-            className={css["preview-images__img"]}
-            alt="stayfy-background"
-            src={img}
-            ref={(node) => {
-              if (!node) return;
-              if (!imagesRef.current) {
-                imagesRef.current = [];
-              }
-              imagesRef.current = [...new Set([...imagesRef.current, node])];
-            }}
-          />
-        ))}
+        <div className={css["preview-images__title"]}>PREVIEW</div>
+        <div className={`${css["preview-images__imgs"]}`}>
+          {images.map((img) => (
+            <img
+              key={img}
+              className={css["preview-images__img"]}
+              alt="stayfy-background"
+              src={img}
+              ref={(node) => {
+                if (!node) return;
+                if (!imagesRef.current) {
+                  imagesRef.current = [];
+                }
+                imagesRef.current = [...new Set([...imagesRef.current, node])];
+              }}
+            />
+          ))}
+        </div>
       </div>
 
       <div className={css["preview-images__dots"]}>

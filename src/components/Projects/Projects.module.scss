@@ -1,14 +1,12 @@
 @use "../../sassStyles/variables" as *;
 
 .projects {
-  border: var(--border);
-
   display: grid;
-  grid-template-columns: 1fr 50%;
+  grid-template-columns: 1fr 1fr;
   background-color: var(--background-color);
-  grid-auto-rows: minmax(30vh, max-content);
-  //grid-template-rows: minmax(max-content, 50vh);
+  grid-auto-rows: 50vh;
   min-width: 75vw;
+
   @media only screen and (max-width: 48em) {
     min-width: 90vw;
   }
@@ -31,17 +29,11 @@
     }
   }
 
-  &__nav {
-    display: flex;
-    gap: 1.5rem;
-  }
-
   &__overview {
-    border-right: var(--border);
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto 1fr 1.2fr auto;
     flex-direction: column;
-    gap: 1.25rem;
     padding: 2rem 4rem;
     align-items: center;
 

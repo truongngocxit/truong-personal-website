@@ -1,38 +1,17 @@
 @use "../../sassStyles/variables" as *;
 
 .contact {
-  //   height: 40rem;
-  border: var(--border);
-  // box-shadow: 0.5rem 0.5rem 0 $primaryViolet;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: max-content;
   background-color: var(--background-color);
-  width: max-content;
-
+  width: 80vw;
   @media only screen and (max-width: 42em) {
     grid-template-columns: 1fr;
-  }
-
-  &__contacts,
-  &__channels {
-    padding: 4rem 6rem;
-    gap: 4.2rem;
-    @media only screen and (max-width: 48em) {
-      padding: 2rem 4rem;
-      gap: 2.4rem;
-    }
   }
 
   &__contacts {
     display: flex;
     flex-direction: column;
-
-    border-right: var(--border);
-
-    @media only screen and (max-width: 42em) {
-      border-right: none;
-    }
 
     &__items {
       display: flex;
@@ -56,9 +35,9 @@
     &__list {
       list-style: none;
       display: grid;
-      grid-template-columns: repeat(2, max-content);
+      grid-template-columns: repeat(2, 1fr);
       justify-content: space-around;
-      gap: 2.4rem;
+      gap: 2rem;
 
       @media only screen and (max-width: 48em) {
         gap: 1.6rem;
@@ -67,7 +46,7 @@
 
     &__item {
       display: grid;
-      grid-template-rows: 3.2rem max-content;
+      grid-template-rows: 2.8rem max-content;
       gap: 1.5rem;
       justify-items: center;
       text-align: center;
@@ -91,24 +70,13 @@
     }
   }
 
-  &__foot {
-    border-top: var(--border);
-    grid-column: 1 / -1;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-  }
-
-  &__logo {
-    font-size: 1.8rem;
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-
-    &-icon {
-      width: 2.4rem;
-      height: 2.4rem;
+  &__contacts,
+  &__channels {
+    padding: 4rem 6rem;
+    gap: 4.2rem;
+    @media only screen and (max-width: 48em) {
+      padding: 2rem 4rem;
+      gap: 2.4rem;
     }
   }
 }
