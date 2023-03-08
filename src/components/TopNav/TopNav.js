@@ -1,6 +1,5 @@
 import css from "./TopNav.module.scss";
 import MainLogo from "../UI/MainLogo/MainLogo";
-import ToolTip from "../Tooltip/ToolTip";
 import { forwardRef } from "react";
 import ThemeButton from "../ThemeButton/ThemeButton";
 import NavLinks from "../NavLinks/NavLinks";
