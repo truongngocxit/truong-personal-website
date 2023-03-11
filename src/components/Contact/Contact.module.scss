@@ -57,9 +57,9 @@
 
       &:hover {
         background-color: var(--font-color);
-        color: #fff;
-        transform: translate(-0.5rem, -0.5rem);
-        box-shadow: 0.5rem 0.5rem 0 var(--primary-violet);
+        //color: #fff;
+        // transform: translate(-0.5rem, -0.5rem);
+        box-shadow: var(--box-shadow);
         color: var(--background-color);
       }
 

@@ -28,10 +28,10 @@
   --background-color: #edfafe;
   --canvas-layer-color: linear-gradient(
     rgba(255, 255, 255, 1) 0%,
-    rgba(255, 255, 255, 0.8) 20%,
+    rgba(255, 255, 255, 0.8) 15%,
     rgba(255, 255, 255, 0)
   );
-  --modal-background-color: #c9effb;
+  --modal-background-color: #dbf4fc;
   --primary-color: #4cc9f0;
   --border: 0.3rem solid var(--font-color);
   --alternate-border: 0.3rem solid var(--font-color);
@@ -53,13 +53,13 @@
     rgba(8, 20, 24, 0.8) 30%,
     rgba(8, 20, 24, 0.3)
   );
-  --modal-background-color: #173c48;
+  --modal-background-color: #1e5060;
   --nav-background-color: #4cc9f0;
   --border: 0.3rem solid var(--font-color);
   --alternate-border: 0.3rem solid transparent;
   --alternate-background-color: #999;
-  --box-shadow: 0.3rem 0 0 #000, -0.3rem 0 0 #000, 0 0.3rem 0 #000,
-    0 -0.3rem 0 #000;
+  --box-shadow: 0.3rem 0 0 #fff, -0.3rem 0 0 #fff, 0 0.3rem 0 #fff,
+    0 -0.3rem 0 #fff;
 }
 
 *,
