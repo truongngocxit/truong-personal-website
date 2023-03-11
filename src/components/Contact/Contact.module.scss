@@ -3,8 +3,8 @@
 .contact {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  background-color: var(--background-color);
-  width: 80vw;
+  background-color: var(--modal-background-color);
+  width: min-content;
   @media only screen and (max-width: 42em) {
     grid-template-columns: 1fr;
   }
@@ -59,7 +59,7 @@
         background-color: var(--font-color);
         color: #fff;
         transform: translate(-0.5rem, -0.5rem);
-        box-shadow: 0.5rem 0.5rem 0 $primaryViolet;
+        box-shadow: 0.5rem 0.5rem 0 var(--primary-violet);
         color: var(--background-color);
       }
 

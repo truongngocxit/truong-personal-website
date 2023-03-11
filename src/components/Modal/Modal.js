@@ -113,11 +113,6 @@ const Modal = function ({
         </ToolTip>
         {cloneElement(children, { onClose })}
       </div>
-
-      {/* {createPortal(
-        <Overlay onClose={onClose} />,
-        document.getElementById("modal-root")
-      )} */}
     </>
   );
 };

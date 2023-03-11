@@ -7,20 +7,22 @@
   z-index: 1000;
   top: 50%;
   display: grid;
-  grid-template-rows: min-content auto;
+  grid-template-rows: max-content auto;
   grid-auto-columns: auto;
-  box-shadow: 0.5rem 0.5rem 0 #333;
-  border: var(--border);
+  gap: 0;
+
+  box-shadow: 0 0 0 0.3rem #266578, 0 0 0 0.8rem #358da8, 0 0 0 1.1rem #44b5d8,
+    0.3rem 0 0 1.1rem var(--font-color), -0.3rem 0 0 1.1rem var(--font-color),
+    0 0.3rem 0 1.1rem var(--font-color), 0 -0.3rem 0 1.1rem var(--font-color);
 
   &__nav {
-    background-color: $primaryBlue;
-    backdrop-filter: blur(1rem);
+    background-color: var(--primary-color);
+    width: 100%;
+    height: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.75rem 2rem;
-
-    align-items: center;
+    padding: 1rem 2rem;
     cursor: grab;
     font-size: 1.4rem;
 

@@ -8,9 +8,8 @@
   position: absolute;
   background-color: var(--font-color);
   box-shadow: 0.4rem 0 0 var(--font-color), -0.4rem 0 0 var(--font-color),
-    0 0.4rem 0 var(--font-color), 0 -0.4rem 0 var(--font-color),
-    0.4rem 0.7rem 0 $primaryViolet, 0.7rem 0.4rem 0 $primaryViolet;
-  border: $border;
+    0 0.4rem 0 var(--font-color), 0 -0.4rem 0 var(--font-color);
+  border: var(--border);
   bottom: 0;
   left: 50%;
   transform: translate(-50%, 150%);
@@ -49,7 +48,6 @@
       display: block;
       position: absolute;
       background-color: var(--font-color);
-      // box-shadow: inset 0 0 0 0.3rem $primaryBlue;
       top: 0;
       left: 50%;
       transform: translate(-50%, -100%);

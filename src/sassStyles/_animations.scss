@@ -3,20 +3,36 @@
 @keyframes hovering {
   0% {
     transform: translate(-50%, -50%);
+    box-shadow: 0.3rem 0 0 var(--font-color), 0 0.3rem 0 var(--font-color),
+      -0.3rem 0 0 var(--font-color), 0 -0.3rem 0 var(--font-color);
+    box-shadow: var(--box-shadow);
   }
 
   100% {
-    transform: translate(calc(-50% + 0.5rem), calc(-50% + 0.5rem));
+    transform: translate(calc(-50% - 0.6rem), calc(-50% - 0.6rem));
+    box-shadow: 0.3rem 0 0 var(--font-color), 0 0.3rem 0 var(--font-color),
+      -0.3rem 0 0 var(--font-color), 0 -0.3rem 0 var(--font-color);
+    box-shadow: var(--box-shadow), 0.6rem 0.6rem 0 var(--primary-violet),
+      0.9rem 0.6rem 0 var(--primary-violet),
+      0.6rem 0.9rem 0 var(--primary-violet);
   }
 }
 
 @keyframes shadowing {
   0% {
     transform: translate(0.5rem, 0.5rem);
+    box-shadow: 0.3rem 0 0 var(--font-color), 0 0.3rem 0 var(--font-color),
+      -0.3rem 0 0 var(--font-color), 0 -0.3rem 0 var(--font-color);
+    box-shadow: var(--box-shadow), 0.9rem 0.9rem 0 var(--primary-violet),
+      1.2rem 0.9rem 0 var(--primary-violet),
+      0.9rem 1.2rem 0 var(--primary-violet);
   }
 
   100% {
     transform: translate(0rem, 0rem);
+    box-shadow: 0.3rem 0 0 var(--font-color), 0 0.3rem 0 var(--font-color),
+      -0.3rem 0 0 var(--font-color), 0 -0.3rem 0 var(--font-color);
+    box-shadow: var(--box-shadow);
   }
 }
 

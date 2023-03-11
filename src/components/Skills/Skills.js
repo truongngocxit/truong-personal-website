@@ -49,11 +49,6 @@ const Skills = function ({ className = "", onClose }) {
 
   return (
     <div className={`${css["skills"]} ${className}`}>
-      {/* <div className={css["skills__heading"]}>
-        <h2>MY SKILLS</h2>
-        <CloseButton onClose={onClose} />
-      </div> */}
-
       <div className={css["skills__nav"]}>
         <button
           className={`${css["skills__nav-button"]} ${

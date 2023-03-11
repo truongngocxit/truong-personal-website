@@ -35,10 +35,10 @@
     margin-top: 0.75rem;
     height: 2.4rem;
     width: 10rem;
-    //border: $border;
     position: relative;
-    box-shadow: 0.3rem 0 0 #333, -0.3rem 0 0 #333, 0 0.3rem 0 #333,
-      0 -0.3rem 0 #333;
+    background-color: var(--background-color);
+    box-shadow: 0.3rem 0 0 var(--font-color), -0.3rem 0 0 var(--font-color),
+      0 0.3rem 0 var(--font-color), 0 -0.3rem 0 var(--font-color);
 
     @media only screen and (max-width: 64em) {
       width: 8rem;
@@ -62,12 +62,13 @@
     }
 
     &-bar {
-      background-color: $primaryBlue;
+      background-color: var(--primary-blue);
       width: 80%;
       height: 100%;
       transition: all 0.1s;
-      box-shadow: inset 0.4rem 0 $primaryBlue, inset -0.4rem 0 $primaryBlue,
-        inset 0 -0.3rem $primaryBlue, inset 0 -0.6rem 0 rgba(255, 255, 255, 0.5);
+      box-shadow: inset 0.4rem 0 var(--primary-blue),
+        inset -0.4rem 0 var(--primary-blue), inset 0 -0.3rem var(--primary-blue),
+        inset 0 -0.6rem 0 rgba(255, 255, 255, 0.5);
     }
   }
 }

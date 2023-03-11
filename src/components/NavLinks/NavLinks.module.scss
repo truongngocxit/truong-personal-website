@@ -69,30 +69,12 @@
   &:active &__text {
     top: 0rem;
   }
-  //end test
-  // background-color: var(--font-color);
-  // color: var(--background-color);
-
-  // transform: translate(-0.3rem, -0.3rem);
-  // box-shadow: 0.3rem 0 0 var(--font-color), -0.3rem 0 0 var(--font-color),
-  //   0 0.3rem 0 var(--font-color), 0 -0.3rem 0 var(--font-color),
-  //   0.6rem 0.3rem 0 $primaryViolet, 0.3rem 0.6rem 0 $primaryViolet;
-  // &:active {
-  //   background-color: var(--font-color);
-  //   transform: translate(0, 0);
-  //   box-shadow: 0.3rem 0 0 var(--font-color), -0.3rem 0 0 var(--font-color),
-  //     0 0.3rem 0 var(--font-color), 0 -0.3rem 0 var(--font-color);
-  // }
 
   @media only screen and (max-width: 27em) {
-    padding: 0.75rem 1rem;
+    padding: 1.25rem 1rem;
   }
 
   @media only screen and (max-width: 24em) {
-    padding: 0.75rem;
-  }
-
-  @media only screen and (max-width: 24em) {
-    padding: 0.75rem;
+    padding: 1.25rem 0.75rem;
   }
 }

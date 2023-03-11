@@ -3,45 +3,31 @@
 .skills {
   display: grid;
   grid-auto-flow: row;
-  background-color: var(--background-color);
-
-  border-top: none;
   width: max-content;
-  background-color: $primaryBlue;
-  backdrop-filter: blur(1rem);
-}
-
-.skills__heading {
-  padding: 1.5rem;
-  display: flex;
-  justify-content: space-between;
-}
-
-.skills__section {
+  background-color: var(--primary-blue);
 }
 
 .skills__nav {
+  margin: 0 2rem;
+  gap: 1.5rem;
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: max-content;
   width: max-content;
-  border-top: var(--border);
-  border-bottom: none;
-  border-right: none;
   position: relative;
-  top: 0.3rem;
 
   &-button {
-    padding: 1.5rem 4rem;
+    padding: 1.5rem 3rem;
     font-weight: 700;
     background-color: var(--alternate-background-color);
-    border-right: var(--border);
-    box-shadow: inset 0 -0.3rem 0 var(--font-color);
+    box-shadow: 0.3rem 0 var(--font-color), 0 -0.3rem 0 var(--font-color),
+      -0.3rem 0 var(--font-color), inset 0 -0.3rem 0 var(--font-color);
     color: var(--font-color);
 
     &--active {
-      background-color: var(--background-color);
-      box-shadow: 0 0.3rem 0 var(--background-color);
+      background-color: var(--modal-background-color);
+      box-shadow: 0.3rem 0 var(--font-color), 0 -0.3rem 0 var(--font-color),
+        -0.3rem 0 var(--font-color), inset 0 -0.3rem 0 transparent;
       color: var(--font-color);
     }
 
@@ -52,10 +38,10 @@
 }
 
 .skills__content {
-  background-color: var(--background-color);
+  background-color: var(--modal-background-color);
   width: 75vw;
   padding: 8rem 6rem;
-  border-top: var(--border);
+  box-shadow: 0 -0.3rem 0 var(--font-color);
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: max-content;
@@ -73,7 +59,4 @@
   @media only screen and (max-width: 27em) {
     gap: 2rem;
   }
-}
-
-.skills__heading {
 }

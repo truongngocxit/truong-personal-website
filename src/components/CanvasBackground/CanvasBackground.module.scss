@@ -1,0 +1,22 @@
+@use "../../sassStyles/variables" as *;
+
+.canvas {
+  position: relative;
+  &-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -50;
+    background-color: var(--background-color);
+  }
+
+  &-layer {
+    position: fixed;
+    z-index: -20;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--canvas-layer-color);
+  }
+}

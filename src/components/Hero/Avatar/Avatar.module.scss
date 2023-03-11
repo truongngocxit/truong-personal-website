@@ -15,7 +15,8 @@
   left: 50%;
   transform: translate(-50%, -50%);
   transition: all 0.3s;
-  color: var(--font-color);
+  color: var(--primary-dark);
+  image-rendering: pixelated;
   animation: hovering 1s infinite alternate both ease;
 
   &:hover,
@@ -23,9 +24,6 @@
   &:hover &__nav,
   &:hover &__image {
     animation-play-state: paused;
-  }
-
-  &--visible {
   }
 
   &--hidden {
@@ -36,24 +34,12 @@
     border: 0.3rem solid transparent;
   }
 
-  &::after {
-    content: "";
-    width: 100%;
-    height: 100%;
-    background-color: $primaryViolet;
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    animation: shadowing 1s infinite alternate both ease;
-  }
-
   &__nav {
     display: grid;
     grid-template-columns: 1fr 3.6rem;
     grid-template-rows: 3.6rem;
-    background-color: var(--background-color);
-    border: var(--border);
+    background-color: var(--primary-color);
+    border-bottom: 0.3rem solid #333;
     position: relative;
     width: 100%;
   }
@@ -68,7 +54,7 @@
   &__close {
     border: none;
     background: none;
-    border-left: var(--border);
+    border-left: 0.3rem solid #333;
     height: 100%;
     font-weight: 700;
     display: flex;
@@ -83,11 +69,18 @@
   }
 
   &__image {
-    border: var(--border);
-    border-top: none;
+    //border: var(--border);
+    //border-top: none;
     min-width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
   }
+}
+
+.loading-bar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

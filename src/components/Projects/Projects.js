@@ -57,7 +57,9 @@ const Projects = function ({ className = "", onClose }) {
                 onClick={handleDecreaseProjectIndex}
                 disabled={!data || projectIndex === 0}
               >
-                <ChevronLeft />
+                <ChevronLeft
+                  className={css["projects__overview__nav-button__icon"]}
+                />
               </button>
               <button
                 className={css["projects__overview__nav-button"]}
@@ -66,7 +68,9 @@ const Projects = function ({ className = "", onClose }) {
                   !data || (images && projectIndex === images.length - 1)
                 }
               >
-                <ChevronRight />
+                <ChevronRight
+                  className={css["projects__overview__nav-button__icon"]}
+                />
               </button>
             </div>
             <h3 className={css["projects__overview__name"]}>

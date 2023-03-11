@@ -4,7 +4,7 @@
 .hero {
   height: 100%;
   display: grid;
-  background-color: var(--background-color);
+  //background-color: var(--background-color);
   position: relative;
 
   &__logo {
@@ -50,4 +50,10 @@
   &__avatar {
     place-self: center;
   }
+}
+
+.hello-button {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
 }

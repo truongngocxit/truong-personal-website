@@ -2,24 +2,64 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Press+Start+2P&display=swap");
 
 :root {
+  //GENERAL STYLES
   --font-color: #333;
+  --primary-dark: #333;
+  --primary-violet: #f72585;
+  --secondary-violet-1: #b5179e;
+  --secondary-violet-2: #7209b7;
+  --secondary-violet-3: #560bad;
+  --secondary-violet-4: #480ca8;
+  --secondary-violet-5: #3a0ca3;
+  --tertiary-violet-1: #f9519d;
+  --tertiary-violet-2: #fa7cb6;
+
+  //Blue color
+  --primary-blue: #4cc9f0;
+  --secondary-blue-1: #4895ef;
+  --secondary-blue-2: #4361ee;
+  --secondary-blue-3: #3f37c9;
+
+  //warningColor
+  --warning-color: #dc2f02;
+
+  //Element specific styles
   --disabled-color: rgba(51, 51, 51, 0.5);
-  --background-color: #fff;
+  --background-color: #edfafe;
+  --canvas-layer-color: linear-gradient(
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0.8) 20%,
+    rgba(255, 255, 255, 0)
+  );
+  --modal-background-color: #c9effb;
+  --primary-color: #4cc9f0;
   --border: 0.3rem solid var(--font-color);
   --alternate-border: 0.3rem solid var(--font-color);
   --alternate-background-color: #ccc;
   --nav-link-background-color: #4cc9f0;
   --nav-link-shade-color: #358da8;
   --nav-link-tint-color: #dbf4fc;
+  --box-shadow: 0.3rem 0 0 #333, -0.3rem 0 0 #333, 0 0.3rem 0 #333,
+    0 -0.3rem 0 #333;
+  transition: transform 0.3s;
 }
 
 [data-theme="dark"] {
-  --font-color: #eee;
+  --font-color: #fff;
   --disabled-color: rgba(237, 237, 237, 0.5);
-  --background-color: #333;
+  --background-color: #0f2830;
+  --canvas-layer-color: linear-gradient(
+    rgba(8, 20, 24, 1) 0%,
+    rgba(8, 20, 24, 0.8) 30%,
+    rgba(8, 20, 24, 0.3)
+  );
+  --modal-background-color: #173c48;
+  --nav-background-color: #4cc9f0;
   --border: 0.3rem solid var(--font-color);
   --alternate-border: 0.3rem solid transparent;
   --alternate-background-color: #999;
+  --box-shadow: 0.3rem 0 0 #000, -0.3rem 0 0 #000, 0 0.3rem 0 #000,
+    0 -0.3rem 0 #000;
 }
 
 *,
@@ -62,12 +102,11 @@ body {
     background: #fff;
 
     &-thumb {
-      background-color: $primaryDark;
+      background-color: var(--primary-dark);
     }
 
     &-track {
-      // box-shadow: inset 0 0 0 0.3rem $primaryDark;
-      border-left: $border;
+      border-left: var(--border);
     }
   }
 }

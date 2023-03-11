@@ -28,8 +28,8 @@
   }
 
   &__cursor {
-    color: $primaryViolet;
-    background-color: $primaryViolet;
+    color: var(--primary-violet);
+    background-color: var(--primary-violet);
     width: 1.5rem;
     height: 2.8rem;
     display: inline-block;
@@ -39,8 +39,8 @@
     }
 
     &--paused {
-      color: $primaryViolet;
-      background-color: $primaryViolet;
+      color: var(--primary-violet);
+      background-color: var(--primary-violet);
     }
   }
 

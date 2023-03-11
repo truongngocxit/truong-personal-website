@@ -3,7 +3,7 @@
 .projects {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  background-color: var(--background-color);
+  background-color: var(--modal-background-color);
   grid-auto-rows: 50vh;
   min-width: 75vw;
 
@@ -60,35 +60,46 @@
       }
 
       &-button {
-        border: var(--border);
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 3.6rem;
-        height: 3.6rem;
-        padding: 0.5rem;
+        width: 2.8rem;
+        height: 3.2rem;
+        padding: 1rem;
         transition: all 0.3s;
+        background-color: #ccc;
         color: var(--font-color);
+        box-shadow: inset 0 -0.4rem 0 #999, inset 0 -0.6rem 0 #eee,
+          var(--box-shadow);
+
+        &__icon {
+          position: relative;
+          bottom: 0.2rem;
+        }
 
         &:hover {
-          transform: translate(-0.4rem, -0.4rem);
-          box-shadow: 0.4rem 0.4rem 0 0 $primaryViolet;
-          background-color: var(--font-color);
-          color: var(--background-color);
+          background-color: #aaa;
         }
 
         &:active {
-          transform: translate(0, 0);
-          box-shadow: none;
+          box-shadow: inset 0 -0.2rem 0 #eee, var(--box-shadow);
+        }
+
+        &:active &__icon {
+          transform: translateY(0.2rem);
         }
 
         &:disabled {
-          border: 0.3rem solid var(--disabled-color);
-          color: var(--disabled-color);
           cursor: not-allowed;
-          transform: translate(0, 0);
-          box-shadow: none;
-          background-color: var(--background-color);
+          box-shadow: 0.3rem 0 0 rgba(51, 51, 51, 0.6),
+            -0.3rem 0 0 rgba(51, 51, 51, 0.6), 0 0.3rem 0 rgba(51, 51, 51, 0.6),
+            0 -0.3rem 0 rgba(51, 51, 51, 0.6);
+          background-color: #eee;
+        }
+
+        &:disabled &__icon {
+          transform: translateY(0.2rem);
+          color: rgba(51, 51, 51, 0.6);
         }
       }
     }
@@ -96,8 +107,7 @@
     &__links {
       display: grid;
       grid-auto-flow: column;
-      // grid-auto-columns: 16rem;
-      gap: 1rem;
+      gap: 2rem;
       padding-top: 1rem;
       grid-column: 1 / -1;
 
@@ -110,27 +120,30 @@
     &__link {
       padding: 1rem;
       font-weight: 700;
-      border: var(--border);
       display: flex;
       align-items: center;
       gap: 1.5rem;
       justify-content: center;
       transition: all 0.3s;
+      box-shadow: var(--box-shadow);
       cursor: pointer;
 
       &--prod {
         background-color: var(--font-color);
         color: var(--background-color);
+
         &:hover {
-          transform: translate(-0.4rem, -0.4rem);
-          box-shadow: 0.4rem 0.4rem 0 $primaryViolet;
+          background-color: var(--background-color);
+          color: var(--font-color);
         }
       }
 
       &--code {
+        background-color: var(--background-color);
+        color: var(--font-color);
         &:hover {
-          transform: translate(-0.4rem, -0.4rem);
-          box-shadow: 0.4rem 0.4rem 0 $primaryBlue;
+          background-color: var(--font-color);
+          color: var(--background-color);
         }
       }
     }

@@ -7,6 +7,8 @@ import Footer from "./components/Footer/Footer";
 import css from "./App.module.scss";
 import Modal from "./components/Modal/Modal";
 import CVView from "./components/CVView/CVView";
+import Hello from "./components/Hello/Hello";
+import CanvasBackground from "./components/CanvasBackground/CanvasBackground";
 import { useReducer, useRef, useLayoutEffect, useState } from "react";
 
 const App = function () {
@@ -15,7 +17,7 @@ const App = function () {
   const [currentScreen, setCurrentScreen] = useState("laptop");
 
   const [
-    { projectsIsOn, contactsIsOn, skillsIsOn, cvIsOn },
+    { projectsIsOn, contactsIsOn, skillsIsOn, cvIsOn, helloIsOn },
     dispatchModalAction,
   ] = useReducer(modalReducer, modalInitialState);
 
@@ -42,6 +44,12 @@ const App = function () {
     setTopModal("cv");
   };
   const handleCloseCVModal = () => dispatchModalAction("CV_OFF");
+
+  const handleOpenHelloModal = () => {
+    dispatchModalAction("HELLO_ON");
+    setTopModal("hello");
+  };
+  const handleCloseHelloModal = () => dispatchModalAction("HELLO_OFF");
 
   //CONTROLS MODAL STACKING ORDER
 
@@ -91,6 +99,7 @@ const App = function () {
           onOpenProjects={handleOpenProjectModal}
           onOpenCV={handleOpenCVModal}
           currentScreen={currentScreen}
+          onOpenHello={handleOpenHelloModal}
         />
       </main>
       <Footer
@@ -101,6 +110,7 @@ const App = function () {
         onOpenContacts={handleOpenContactModal}
         onOpenCV={handleOpenCVModal}
       />
+      <CanvasBackground />
 
       {cvIsOn && (
         <Modal
@@ -143,6 +153,17 @@ const App = function () {
           title="my projects"
         >
           <Projects />
+        </Modal>
+      )}
+
+      {helloIsOn && (
+        <Modal
+          title="hello!"
+          onClose={handleCloseHelloModal}
+          onClick={setTopModal.bind(null, "hello")}
+          isOnTop={topModal === "hello"}
+        >
+          <Hello />
         </Modal>
       )}
     </>
@@ -198,6 +219,16 @@ const modalReducer = function (state, action) {
       return {
         ...state,
         cvIsOn: false,
+      };
+    case "HELLO_ON":
+      return {
+        ...state,
+        helloIsOn: true,
+      };
+    case "HELLO_OFF":
+      return {
+        ...state,
+        helloIsOn: false,
       };
     default:
       return { ...state };
