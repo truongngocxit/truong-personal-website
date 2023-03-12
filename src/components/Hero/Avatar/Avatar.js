@@ -57,8 +57,6 @@ const Avatar = function ({ className = "" }) {
           </div>
         )}
       </div>
-
-      {console.log("DOM committed")}
     </div>
   );
 };

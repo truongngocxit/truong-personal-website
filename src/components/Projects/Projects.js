@@ -39,8 +39,6 @@ const Projects = function ({ className = "", onClose }) {
     );
   }
 
-  console.log(data);
-
   return (
     <div className={`${css["projects"]} ${className}`}>
       {isLoading && (

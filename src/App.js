@@ -88,7 +88,6 @@ const App = function () {
     return () => resizeObserverRef.current.disconnect();
   }, []);
 
-  console.log(topModal);
 
   return (
     <>
