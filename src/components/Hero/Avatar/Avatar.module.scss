@@ -18,6 +18,7 @@
   color: var(--primary-dark);
   image-rendering: pixelated;
   animation: hovering 1s infinite alternate both ease;
+  background-color: var(--background-color);
 
   &:hover,
   &:hover::after,

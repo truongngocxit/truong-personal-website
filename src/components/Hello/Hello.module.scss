@@ -7,15 +7,15 @@
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
-  padding: 4rem 6rem;
+  padding: 3rem 6rem;
 
   @media only screen and (max-width: 64em) {
-    padding: 3rem 5rem;
+    padding: 2.5rem 5rem;
     width: 60vw;
   }
 
   @media only screen and (max-width: 64em) {
-    padding: 3rem;
+    padding: 2.5rem;
     width: 80vw;
   }
 
@@ -38,5 +38,38 @@
     text-align: justify;
     flex-direction: column;
     gap: 1.25rem;
+  }
+
+  &__button {
+    align-self: center;
+
+    background-color: #ffdd00;
+    padding: 1.5rem 3rem;
+    width: max-content;
+    color: #ff7b00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0.3rem 0 0 var(--font-color), -0.3rem 0 0 var(--font-color),
+      0 0.3rem 0 var(--font-color), 0 -0.3rem 0 var(--font-color),
+      0 -0.3rem 0 var(--font-color), inset 0 -0.4rem 0 #ccb100,
+      inset 0 -0.6rem 0 #fff2b2;
+
+    &__text {
+      font-weight: 700;
+      position: relative;
+      bottom: 0.2rem;
+      left: 0.1rem;
+    }
+
+    &:active {
+      box-shadow: 0.3rem 0 0 var(--font-color), -0.3rem 0 0 var(--font-color),
+        0 0.3rem 0 var(--font-color), 0 -0.3rem 0 var(--font-color),
+        0 -0.3rem 0 var(--font-color), inset 0 -0.2rem 0 #fff2b2;
+    }
+
+    &:active &__text {
+      transform: translateY(0.2rem);
+    }
   }
 }

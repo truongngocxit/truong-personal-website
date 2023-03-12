@@ -2,7 +2,7 @@
 
 .modal {
   position: fixed;
-  user-select: none;
+
   transform: translate(-50%, -50%);
   z-index: 1000;
   top: 50%;
@@ -16,6 +16,7 @@
     0 0.3rem 0 1.1rem var(--font-color), 0 -0.3rem 0 1.1rem var(--font-color);
 
   &__nav {
+    user-select: none;
     background-color: var(--primary-blue);
     width: 100%;
     height: auto;

@@ -1,7 +1,6 @@
 import css from "./Hello.module.scss";
-import Button from "../Button/Button";
 
-const Hello = function () {
+const Hello = function ({ onOpenCV }) {
   return (
     <div className={css["hello"]}>
       <h3 className={css["hello__heading"]}>
@@ -21,7 +20,9 @@ const Hello = function () {
         <p>If you have any opportunity, please contact me:</p>
       </div>
 
-      <Button className={css["hello__button"]}>VIEW MY CV</Button>
+      <button className={css["hello__button"]} type="button" onClick={onOpenCV}>
+        <span className={css["hello__button__text"]}>VIEW MY CV</span>
+      </button>
     </div>
   );
 };

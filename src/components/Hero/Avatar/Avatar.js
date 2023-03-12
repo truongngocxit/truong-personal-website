@@ -1,5 +1,5 @@
 import css from "./Avatar.module.scss";
-import { useState, useLayoutEffect, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import ExpandIcon from "../../UI/SVG/ExpandIcon";
 import CollapseIcon from "../../UI/SVG/CollapseIcon";
 import ToolTip from "../../Tooltip/ToolTip";
@@ -10,9 +10,6 @@ const Avatar = function ({ className = "" }) {
   const [avatarHasLoaded, setAvatarHasLoaded] = useState(false);
   const avatarRef = useRef(null);
 
-  const [{ width: avatarBgWidth, height: avatarBgHeight }, setBackgroundSize] =
-    useState({ width: 0, height: 0 });
-
   const handleAvatarHasLoaded = function () {
     setAvatarHasLoaded(true);
   };
@@ -20,18 +17,6 @@ const Avatar = function ({ className = "" }) {
   const handleToggleAvatarState = function () {
     setAvatarIsShown((state) => !state);
   };
-
-  useEffect(() => {
-    const avatarWidth = avatarRef.current.getBoundingClientRect().width;
-    const avatarHeight = avatarRef.current.getBoundingClientRect().height;
-
-    console.log(avatarWidth, avatarHeight);
-
-    setBackgroundSize({
-      width: avatarWidth,
-      height: avatarHeight,
-    });
-  }, [avatarIsShown]);
 
   return (
     <div className={`${css["container"]} ${className}`}>
@@ -63,6 +48,7 @@ const Avatar = function ({ className = "" }) {
           className={`${css["avatar__image"]} `}
           alt="Truong's portrait"
           src={require("../../../assets/avatar-img.png")}
+          style={{ opacity: avatarHasLoaded ? 1 : 0 }}
           onLoad={handleAvatarHasLoaded}
         />
         {!avatarHasLoaded && (
@@ -71,10 +57,7 @@ const Avatar = function ({ className = "" }) {
           </div>
         )}
       </div>
-      {/* <div
-        className={css["avatar__background"]}
-        style={{ width: avatarBgWidth, height: avatarBgHeight }}
-      /> */}
+
       {console.log("DOM committed")}
     </div>
   );

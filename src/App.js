@@ -21,31 +21,36 @@ const App = function () {
     dispatchModalAction,
   ] = useReducer(modalReducer, modalInitialState);
 
-  const handleOpenProjectModal = () => {
+  const handleOpenProjectModal = (event) => {
+    event.stopPropagation();
     dispatchModalAction("PROJECTS_ON");
     setTopModal("projects");
   };
   const handleCloseProjectModal = () => dispatchModalAction("PROJECTS_OFF");
 
-  const handleOpenSkillModal = () => {
+  const handleOpenSkillModal = (event) => {
+    event.stopPropagation();
     dispatchModalAction("SKILLS_ON");
     setTopModal("skills");
   };
   const handleCloseSkillModal = () => dispatchModalAction("SKILLS_OFF");
 
-  const handleOpenContactModal = () => {
+  const handleOpenContactModal = (event) => {
+    event.stopPropagation();
     dispatchModalAction("CONTACTS_ON");
     setTopModal("contact");
   };
   const handleCloseContactModal = () => dispatchModalAction("CONTACTS_OFF");
 
-  const handleOpenCVModal = () => {
+  const handleOpenCVModal = (event) => {
+    event.stopPropagation();
     dispatchModalAction("CV_ON");
     setTopModal("cv");
   };
   const handleCloseCVModal = () => dispatchModalAction("CV_OFF");
 
-  const handleOpenHelloModal = () => {
+  const handleOpenHelloModal = (event) => {
+    event.stopPropagation();
     dispatchModalAction("HELLO_ON");
     setTopModal("hello");
   };
@@ -82,6 +87,8 @@ const App = function () {
 
     return () => resizeObserverRef.current.disconnect();
   }, []);
+
+  console.log(topModal);
 
   return (
     <>
@@ -163,7 +170,7 @@ const App = function () {
           onClick={setTopModal.bind(null, "hello")}
           isOnTop={topModal === "hello"}
         >
-          <Hello />
+          <Hello onOpenCV={handleOpenCVModal} />
         </Modal>
       )}
     </>
